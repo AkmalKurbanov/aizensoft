@@ -1,13 +1,32 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
   height: 100%;
   position: relative;
-  // font-family: $helvetica;
+  font-family: $gl;
+}
+
+::-webkit-scrollbar {
+  width: rem(10);
+  background-color: #f9f9fd;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #7F7F7F;
+  border-radius: rem(10);
+  border: rem(2) solid $wc;
+}
+
+body {
+  &.disabled-scroll {
+    overflow: hidden;
+    padding-right: rem(10);
+  }
 }
 
 a {
@@ -44,27 +63,33 @@ button {
 
   .content {
     flex: 1 0 auto;
+    // padding: 0 5%;
+
+    // @include xs {
+    //   padding: 0;
+    // }
   }
 }
+
 // flex footer end
 
 // container
 .container {
-  width: 100%;
   padding-right: rem(15px);
   padding-left: rem(15px);
   margin-right: auto;
   margin-left: auto;
-  max-width: rem(1170px);
+  max-width: rem(1680px);
+  width: 100%;
   position: relative;
   box-sizing: border-box;
 
-  @include lg {
-    max-width: rem(960px);
+  &.indent {
+    max-width: rem(1370px);
   }
 
-  @include md {
-    max-width: rem(720px);
+  @include lg {
+    max-width: rem(960px);
   }
 
   @include sm {
@@ -78,3 +103,404 @@ button {
 
 
 // container end
+
+// languages start
+.lang {
+  display: flex;
+  align-items: center;
+  margin-left: rem(40);
+
+  &__item {
+    margin-right: rem(10);
+
+    &.active {
+      a {
+        color: $wc;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    font-weight: 700;
+    color: #515151;
+
+    &:hover {
+      color: $wc;
+    }
+  }
+}
+
+// languages end
+
+// logo start
+.logo {
+  display: flex;
+  align-items: center;
+  max-width: rem(250);
+  width: 100%;
+
+  &__link {
+    width: rem(130);
+
+    .color-logo {
+      display: none;
+    }
+
+    .light-logo {
+      display: block;
+    }
+  }
+}
+
+// logo end
+
+
+// btn start
+.btn {
+  display: flex;
+  align-items: center;
+
+  &--ft {
+    border: rem(2) solid $wc;
+    font-weight: 600;
+    color: $wc;
+    font-size: rem(27);
+    padding: rem(15);
+    line-height: rem(22);
+
+    &:hover {
+      background-color: $wc;
+      color: $bc;
+    }
+  }
+
+  &--filling-btn {
+    border: rem(1) solid $bc;
+    position: relative;
+    display: inline-flex;
+    padding: 0 rem(30);
+    min-height: rem(80);
+    overflow: hidden;
+
+    &:after {
+      position: absolute;
+      content: '';
+      font-family: icon;
+      top: 50%;
+      right: rem(30);
+      transform: translateY(-50%);
+      font-size: rem(25);
+    }
+
+    &:hover {
+      span {
+        color: $wc;
+      }
+
+      &:before {
+        right: 0;
+      }
+
+      &:after {
+        color: $wc;
+      }
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      height: 100%;
+      width: 100%;
+      transition: $tr;
+      right: 100%;
+      background-color: $bc;
+    }
+
+    span {
+      color: $bc;
+      font-size: rem(18);
+      font-weight: 500;
+      position: relative;
+    }
+  }
+
+  &--filled {
+    border-color: $mc;
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      color: $wc;
+    }
+
+    &:hover {
+      span {
+        color: $mc;
+      }
+
+      &:before {
+        left: 100%;
+      }
+
+      &:after {
+        color: $mc;
+      }
+    }
+
+    span {
+      color: $wc;
+    }
+
+    &:before {
+      width: 100%;
+      height: 100%;
+      background-color: $mc;
+    }
+  }
+}
+
+// btn end
+
+
+// curtain start
+.curtain,
+.curtain-light {
+  position: absolute;
+  border-radius: 100%;
+  width: rem(56);
+  height: rem(56);
+  z-index: 2;
+  top: rem(28);
+  right: rem(111);
+  transform: scale(0);
+}
+
+.curtain {
+  background-color: $bc;
+  transition: all 1s;
+
+  &.open {
+    transform: scale(100);
+  }
+}
+
+.curtain-light {
+  background-color: $wc;
+  transition: all .5s;
+
+  &.open {
+    transform: scale(100);
+    transition: all 1s;
+    z-index: 99;
+  }
+}
+
+// curtain end
+
+// overlay start
+.overlay {
+  &.open {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $wc;
+    z-index: 2;
+  }
+}
+
+// overlay end
+
+
+// title start
+.title {
+  color: $bc;
+  font-size: rem(36);
+
+  &.indent {
+    margin-bottom: rem(60);
+  }
+
+  &--light {
+    color: $wc;
+  }
+}
+
+.subtitle {
+  font-weight: 700;
+  line-height: rem(18);
+  color: #717171;
+  margin-top: rem(15);
+
+  &.indent {
+    margin-bottom: rem(60);
+  }
+}
+
+// title end
+
+// more start
+.more {
+  color: $mc;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: rem(35);
+
+  &:hover {
+    i {
+      padding-left: rem(15);
+    }
+  }
+
+  i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: rem(20);
+    padding-left: rem(5);
+    transition: $tr;
+  }
+}
+
+// more end
+
+
+
+
+// fade start
+.fadeInUp {
+  transform: translateY(20%);
+  opacity: 0;
+  transition: 1s;
+
+  &--animated {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// fade end
+
+// input start
+.form-control {
+  position: relative;
+  margin-bottom: rem(60);
+  border-bottom: rem(2) solid $bc;
+  height: rem(50);
+
+  input {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: relative;
+    font-size: rem(26);
+    line-height: rem(50);
+
+    &:focus+label {
+      bottom: 100%;
+      font-size: rem(16);
+      color: #818181;
+    }
+  }
+
+  label {
+    position: absolute;
+    bottom: rem(15);
+    left: 0;
+    transition: $tr;
+    font-size: rem(26);
+    color: $bc;
+
+    &.not-empty {
+      bottom: 100%;
+      font-size: rem(16);
+      color: #818181;
+    }
+  }
+
+  &__dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    padding: rem(14) rem(25);
+    box-shadow: 0 2px 13px rgba(0, 0, 0, .1);
+    width: 100%;
+    z-index: 1;
+    background-color: $wc;
+    max-height: rem(183);
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    li {
+      color: #828282;
+      font-size: rem(17);
+      line-height: rem(26);
+      font-weight: 600;
+      padding: rem(3) 0;
+      transition: $tr;
+
+      &:hover {
+        color: $bc;
+      }
+    }
+  }
+
+  .form-control-ckecked {
+    cursor: pointer;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: '';
+      font-family: icon;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%) rotate(180deg);
+      font-size: rem(30);
+      transition: $tr;
+      color: #828282;
+    }
+
+    span {
+      display: block;
+      padding-top: rem(10);
+      font-size: rem(26);
+      color: $bc;
+    }
+
+    &--active {
+      .form-control__dropdown {
+        display: block;
+      }
+
+      &:after {
+        transform: translateY(-50%) rotate(0);
+      }
+    }
+  }
+}
+
+// input end
+
+
+// section indent start
+.section-indent {
+  padding: rem(80) 0;
+}
+
+// section indent end

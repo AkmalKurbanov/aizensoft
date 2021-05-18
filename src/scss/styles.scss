@@ -12,7 +12,7 @@
 // подключение сгенерированных иконок(fontello),
 // FontAwesome
 
-// @import "../assets/icons/fontello/--/--/";
+@import "../assets/icons/css/icon.css";
 // @import "../assets/icons/fontawesome5/web-fonts-with-css/css/fontawesome-all.min.css";
 
 //---------------------------------------------
@@ -32,5 +32,15 @@
 // Компоненты
 
 @import "components/base";
+@import "components/menu";
 @import "components/header";
+@import "components/list";
+@import "components/block-video";
+@import "components/services";
+@import "components/portfolio";
+@import "components/questions";
+@import "components/dark-bg";
+@import "components/light-bg";
+@import "components/partners";
+@import "components/contacts";
 @import "components/footer";

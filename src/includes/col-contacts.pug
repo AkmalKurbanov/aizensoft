@@ -1,0 +1,22 @@
+.col-contacts
+  .col-contacts__contacts-item 
+      span Номер телефона
+      a(href="tel:38 (095) 307 888 5") 38 (095) 307 888 5
+  .col-contacts__contacts-item 
+      span Номер телефона
+      a(href="mailto:info@brainlab.com.ua") info@brainlab.com.ua
+  .col-contacts__contacts-item 
+      span Наш офис
+      p Украина, Киев улица Евгения Сверстюка, 19
+  .col-contacts__contacts-item 
+      span Мы в соц.сетях
+      ul.col-contacts__social 
+        mixin social(social)
+          li 
+            a(href="#" target="_blank")=social
+        +social('facebook')     
+        +social('instagram')     
+        +social('linkedin')     
+        +social('behance')     
+        +social('vimeo')     
+        +social('pinterest')

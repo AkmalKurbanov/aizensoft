@@ -1,0 +1,23 @@
+.questions {
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__gif,
+  &__form {
+    flex-basis: 45%;
+  }
+
+  &__form {
+    border: rem(2) solid $bc;
+    padding: rem(60) rem(70);
+
+    .btn {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+
+}

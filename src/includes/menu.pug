@@ -1,0 +1,27 @@
+.menu
+  .container.indent
+    .menu__col-wrap
+      .menu__col 
+        include ../includes/col-contacts     
+      .menu__col
+        .menu__nav
+          mixin list(data)
+            ul
+              each item, index in  data.items
+                if index == 0
+                  li
+                    a(href="#")=item.title
+                    if item.sublevel
+                      +list(item)
+                else
+                  li
+                    a(href="#")=item.title
+                    if item.sublevel
+                      +list(item)
+
+
+
+          - var data = { "items": [{"title": "Услуги", "sublevel": true, "items":[{"title": "Landing page"},{"title": "Корпоративный сайт"},{"title": "Интернет магазин"},{"title": "Бизнес сайт"},{"title": "Сайт визитка"},{"title": "Дизайн сайта"},{"title": "Доработка сайта"},{"title": "Редизайн сайта"}]},{"title": "Портфолио"},{"title": "О нас"},{"title": "Блог"},{"title": "Технологии", "sublevel": true, "items":[{"title": "WordPress"},{"title": "Opencart"}]},{"title": "Контакты"}]}                 
+          +list(data)
+
+

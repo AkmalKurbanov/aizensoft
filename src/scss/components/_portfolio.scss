@@ -1,0 +1,158 @@
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex-basis: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    height: rem(400);
+    padding: 0 rem(30) rem(40);
+
+    &:last-child {
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+
+      &:hover {
+        .portfolio__item-bg {
+          span {
+            transform: scale(1.5);
+            margin: 0 rem(50);
+
+            &:nth-child(2) {
+              transform: scale(2.5);
+
+              &:before {
+                transform: translate(-50%, -50%) scale(3);
+                opacity: .3;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+
+      &:before {
+        display: none;
+      }
+
+      .more {
+        * {
+          color: $bc;
+        }
+      }
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      background-color: rgba($bc, 0.3);
+      transition: $tr;
+      opacity: 0;
+    }
+
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+
+      .portfolio__bg-img {
+        transform: translate(-50%, -50%) scale(1.4);
+      }
+
+      .portfolio__main-img {
+        transform: translate(-50%, -50%) scale(0.78);
+      }
+    }
+
+    img {
+      width: auto;
+    }
+
+    * {
+      color: $wc;
+
+      &:after {
+        background-color: $wc;
+      }
+    }
+  }
+
+  &__img-block {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__main-img,
+  &__bg-img {
+    position: absolute;
+    transition: $tr;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__category {
+    color: $wc;
+    font-weight: 500;
+  }
+
+  &__top-info,
+  &__bottom-info {
+    z-index: 999999999999;
+  }
+
+  &__bottom-info {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &__title {
+    color: #fff;
+    font-size: rem(30);
+    font-weight: 700;
+    line-height: rem(38);
+  }
+
+  &__item-bg {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    span {
+      width: rem(35);
+      height: rem(35);
+      border-radius: 100%;
+      background-color: #dbdbdb;
+      display: block;
+      margin: 0 rem(15);
+      transition: $tr;
+
+      &:nth-child(2) {
+        width: rem(75);
+        height: rem(75);
+        background-color: #ececec;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

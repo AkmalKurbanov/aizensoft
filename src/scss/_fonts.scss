@@ -1,3 +1,6 @@
 @import "mixins/fontface";
 
-@include font-face("fontsName", "../assets/fonts/fontsName", 400);
+@include font-face("gilroy", "../assets/fonts/Regular", 400);
+@include font-face("gilroy", "../assets/fonts/Semibold", 600);
+@include font-face("gilroy", "../assets/fonts/Medium", 500);
+@include font-face("gilroy", "../assets/fonts/Bold", 700);
