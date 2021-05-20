@@ -4,7 +4,67 @@
   z-index: 3;
   transition: $tr;
   width: 100%;
-  
+
+  &.inside-page {
+    background-color: $wc;
+
+    .color-logo {
+      display: block;
+    }
+
+    .light-logo {
+      display: none;
+    }
+
+    .lang {
+      .active {
+        a {
+          color: $bc;
+
+          &:hover {
+            color: $bc;
+          }
+        }
+      }
+
+      a {
+        &:hover {
+          color: $mc;
+        }
+      }
+    }
+
+    .nav {
+      &__item {
+        &:hover {
+          background-color: #f2f4ff;
+        }
+
+        ul {
+          background-color: #f2f4ff;
+        }
+
+        a {
+          color: $bc;
+        }
+      }
+    }
+
+    .header__contacts {
+      a {
+        color: #515151;
+      }
+    }
+
+    .hamburger {
+      background-color: $bc;
+
+      span {
+        background-color: $wc;
+      }
+    }
+  }
+
   &.fixed {
     position: fixed;
     background-color: $wc;

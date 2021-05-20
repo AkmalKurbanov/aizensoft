@@ -4,6 +4,7 @@ block title
 block main
   .wrapper
     .content
+      - var darkBg = true
       include includes/header/header
       .curtain
       .curtain-light
@@ -53,125 +54,22 @@ block main
               span Калькулятор стоимости
 
 
-      .portfolio
-        mixin portfolio(category, title, bgImg, bgColor, img)
-          a(href="#" style="background-color:"+ bgColor +"").portfolio__item
-            .portfolio__img-block
-              .portfolio__bg-img
-                img(src="assets/img/"+ bgImg +"", alt="")
-              .portfolio__main-img
-                img(src="assets/img/"+ img +"", alt="")
-            .portfolio__top-info
-              span.portfolio__category=category
-            .portfolio__bottom-info
-              .portfolio__title=title
-              .more
-                span смотреть кейс 
-                  i.icon-arrow
-        +portfolio('Интернет-магазин','Lavka babuin','portfolio-bg2.png','#347df1','portfolio1.png')
-        +portfolio('Сайт каталог','Fujitsu Ukraine','portfolio-bg6.png','#e43e3e','portfolio2.png')
-        +portfolio('Интернет-магазин','All ok','portfolio-bg8.png','#4734f2','portfolio3.png')
-        +portfolio('Корпоративный сайт','Календарь ZN.UA','portfolio-bg5.png','#a73939','portfolio4.png')
-        +portfolio('Интернет-магазин','Indonesia furniture','portfolio-bg7.png','#b3873c','portfolio5.png')
+      
 
-        a(href="#" style="background-color: #f2f2f2").portfolio__item
-          .portfolio__item-bg
-            span
-            span
-            span
-          .more
-            span смотреть кейсы 
-              i.icon-arrow
+      
+      include includes/portfolio
+      include includes/questions
+      include includes/why
+      include includes/partners
+      include includes/contacts
+      include includes/calculator
+      include includes/about
 
-
-      .questions.section-indent
-        .container 
-          h2.title Есть вопросы?
-          .subtitle Давайте обсудим ваши задачи. Свяжитесь сегодня!
-          .questions__wrap
-            .questions__fig 
-              img(src="assets/img/questions.gif", alt="")
-            .questions__form 
-              form(action="#")
-                mixin input(label,name,id)
-                  .form-control
-                    input(type="text" name=name id=id)
-                    label(for=id)=label
-                +input('Введите ваше имя *', 'Имя','name')   
-                +input('Номер телефона *', 'Телефон','phone')   
-                +input('Email *', 'Email','Email')
-                .form-control
-                  input.select-type(type='hidden' value='1')
-                  .form-control.form-control-ckecked
-                    span Тип сайта
-                    ul.form-control__dropdown
-                      mixin type(title)
-                        li.form-control__option(data-value=title)=title
-                      +type('Landing page')  
-                      +type('Корпоративный/Бизнес сайт')  
-                      +type('Интернет магазин')  
-                      +type('Сайт визитка')  
-                      +type('Дизайн сайта')  
-              button(type="submit").btn.btn--filling-btn.btn--filled 
-                span Отправить
-
-      .dark-bg.section-indent
-        .container.indent
-          h2.title.title--light.indent Почему мы?
-          .list.list--dark
-            mixin list(title, desc)
-              .list__item.fadeInUp
-                .list__top
-                  h3=title
-                  p=desc
-            +list('Прозрачные условия работы.','Договор с гарантиями и обязательствами.')    
-            +list('Гибкая система оплаты.','70/30, 60/40, 50/50 за этап.')    
-            +list('Постоянная обратная связь.','В удобных для вас каналах коммуникации.')    
-            +list('Отчетность по этапам работ.','Наблюдаете результат в реальном времени.')    
-            +list('Обучение работе с сайтом, тех. поддержка.','Консультации и рекоммендации после запуска.')    
-            +list('Демо-версия админ. панели сайта.','Тестовый доступ для знакомства с управлением сайта.')    
-            +list('Максимальная вовлеченность в ваш бизнес.','Вникаем в бизнес-процессы, проектируем конверсионный дизайн.')    
-            +list('Индивидуальный дизайн и разработка.','Чистый и оптимизированный код, отзывчивый дизайн под вашу ЦА.')    
-
-
-      .partners.section-indent
-        .container.indent 
-          h2.title Наши клиенты и партнеры
-          .subtitle Мы работаем с различными сферами бизнеса.
-          .partners__wrap
-            mixin partner(logo)
-              .partners__item
-                img(src="assets/img/"+ logo +"", alt="") 
-            +partner('partner1.svg')
-            +partner('partner2.svg')
-            +partner('partner3.svg')
-            +partner('partner4.svg')
-            +partner('partner5.svg')
-            +partner('partner6.svg')
-            +partner('partner7.svg')
-            +partner('partner8.svg')
-
-      .dark-bg.section-indent.interim-contacts
-        .container.indent
-          h2.title.title--light Хотите сделать что-то великое? <br>
-            |Позвольте помочь вам.
-          .subtitle.indent Готовы? Свяжитесь сегодня.
-          .interim-contacts__wrap
-            .interim-contacts__separate
-              include includes/col-contacts 
-            .interim-contacts__btn-wrap
-              a(href="#").btn.btn--filling-btn.btn--filled
-                span Отправить запрос
-              a(href="#").btn.btn--filling-btn
-                span Калькулятор стоимости
+     
+   
  
-      .light-bg.section-indent.about   
-        .container.indent
-          h2.title Web-студия Brainlab: традиции создания сайтов в Украине
-          
-
-
+      
     include includes/footer/footer
-
+    include includes/modal-window
 
   include includes/scripts 

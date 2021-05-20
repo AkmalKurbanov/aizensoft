@@ -1,0 +1,93 @@
+.calculator.section-indent
+  .container.indent 
+    h2.title Калькулятор стоимости сайта AizenSoft
+    .subtitle Интересует стоимость разработки сайта? Наш калькулятор дает возможность изучить стоимость каждого этапа и подобрать подходящий под бюджет вариант.
+  .container 
+    .calculator__wrap 
+      .calculator__calculated.calculate
+        .calculate__col.type-site
+          .calculate__col-title 1. Тип сайта
+          each item in typeSite
+            .calculate__item
+              .calculate__types
+                .calculate__design 
+                  .calculate__individual 
+                    .price=item.individualPrice
+                    .term=item.individualTerm
+                  .calculate__unique 
+                    .price=item.uniquelPrice
+                    .term=item.uniquelTerm
+                  .calculate__in-stock 
+                    .price=item.inStockPrice 
+                    .term=item.inStockTerm
+                .calculate__page-proofs
+                  .price=item.pageProofsPrice 
+                  .term=item.pageProofsTerm
+                .calculate__cms
+                  .calculate__magento
+                    .price=item.magentoPrice 
+                    .term=item.magentoTerm
+                  .calculate__wordpress
+                    .price=item.wordpressPrice 
+                    .term=item.wordpressTerm
+                  .calculate__cms-in-stock
+                    .price=item.inStockCmsPrice 
+                    .term=item.inStockCmsPrice
+
+              .calculate__title=item.title
+              .calculate__info
+                i.icon-info-circled
+                .calculate__desc 
+                  p=item.desc
+                  a(href="#") Подробнее о сайте
+
+        .calculate__col.design
+          .calculate__col-title 2. Дизайн
+          each item in design
+            .calculate__item(class=item.class)
+              .calculate__title=item.title
+
+        .calculate__col.page-proofs
+          .calculate__col-title 3. Вёрстка
+          each item in pageProofs
+            .calculate__item
+              .calculate__title=item.title
+              .calculate__info
+                i.icon-info-circled
+                .calculate__desc 
+                  p=item.desc
+
+        .calculate__col.cms
+          .calculate__col-title 4. Движок CMS
+          each item in cms
+            .calculate__item(class=item.class)
+              .calculate__title=item.title
+
+      .calculator__result-total.total
+        button.total__reset Сбросить
+        .not-chosen Не выбрано
+        .calculator__item-wrap
+          mixin total(title, status, price, typeSite)
+            div(class=typeSite).total__item
+              .total__info-title=title 
+                span=status
+              .total__info-price
+                span=price
+                |€
+
+          +total('Тип сайта:','Не выбрано','0', 'site-type')
+          +total('Дизайн:','Не выбрано:','0','site-design')
+          +total('Вёрстка:','Не выбрано:','0','site-page-proofs')
+          +total('Движок CMS:','Не выбрано:','0','site-cms')
+        .total__result
+          .total__cost Примерная стоимость: 
+            p
+              span 0 
+              | €
+          .total__term Примерные сроки: 
+            p 
+              span 0 
+              | дней
+        button.btn.btn--filling-btn.btn--filled.order-js
+          span Заказать проект  
+      

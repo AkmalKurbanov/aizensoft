@@ -1,0 +1,26 @@
+.example {
+  position: relative;
+  &__wrap {
+    padding: 0 100px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: rem(26);
+
+    p {
+      font-size: rem(24);
+      color: $bc;
+      font-weight: 500;
+    }
+
+    .btn {
+      margin-left: rem(40);
+    }
+  }
+}

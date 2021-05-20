@@ -1,0 +1,168 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba($bc, .5);
+  z-index: 9;
+  transition: $tr;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: inherit;
+  }
+
+  &__window {
+    background-color: $wc;
+    max-width: rem(540);
+    width: 100%;
+    position: absolute;
+    top: -100%;
+    transition: $tr;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+      top: rem(30);
+      pointer-events: inherit;
+    }
+  }
+
+  &__header {
+    padding: rem(15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: rem(1) solid #e9ecef;
+    position: relative;
+  }
+
+  &__close {
+    position: absolute;
+    top: rem(33);
+    right: rem(30);
+    cursor: pointer;
+    width: rem(30);
+    height: rem(30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    span {
+      transition: $tr;
+      font-weight: 400;
+      color: #c8c8ca;
+      font-size: rem(50);
+    }
+
+    &:hover {
+      span {
+        color: $bc;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__body {
+    padding: rem(15) rem(70) rem(40);
+    text-align: center;
+  }
+
+  &__title {
+    font-size: rem(28);
+    line-height: rem(65);
+    font-weight: 700;
+  }
+
+  .form-control {
+    border-bottom: rem(1) solid #000;
+    margin-bottom: rem(30);
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 0;
+      left: 0;
+      top: 100%;
+      height: rem(1);
+      background-color: $mc;
+      transition: $tr;
+    }
+
+    &:focus-within {
+      &:after {
+        width: 100%;
+      }
+    }
+
+    input,
+    textarea {
+      padding: rem(5) rem(15);
+      font-size: rem(16);
+      color: #5a5a5a;
+      font-weight: 400;
+      line-height: normal;
+
+      &:focus+label {
+        bottom: 85%;
+        font-size: rem(12);
+        color: $mc
+      }
+    }
+
+    label {
+      color: #5a5a5a;
+      font-size: rem(18);
+
+      &.not-empty {
+        bottom: 85%;
+        font-size: rem(12);
+        color: $mc;
+      }
+    }
+
+    &--extended {
+      height: rem(60);
+      line-height: normal;
+
+      textarea {
+        &:focus+label {
+          bottom: 100%;
+        }
+      }
+
+      label {
+        &.not-empty {
+          bottom: 100% !important;
+        }
+      }
+    }
+  }
+
+  .btn {
+    background-color: $bc;
+
+    &:hover {
+      border-color: $bc;
+
+      *,
+      &:after {
+        color: $wc;
+      }
+    }
+  }
+}

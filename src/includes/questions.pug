@@ -1,0 +1,30 @@
+.questions.section-indent
+  .container 
+    h2.title Есть вопросы?
+    .subtitle Давайте обсудим ваши задачи. Свяжитесь сегодня!
+    .questions__wrap
+      .questions__fig 
+        img(src="assets/img/questions.gif", alt="")
+      .questions__form 
+        form(action="#")
+          mixin input(label,name,id)
+            .form-control
+              input(type="text" name=name id=id)
+              label(for=id)=label
+          +input('Введите ваше имя *', 'Имя','name')   
+          +input('Номер телефона *', 'Телефон','phone')   
+          +input('Email *', 'Email','Email')
+          .form-control
+            input.select-type(type='hidden' value='1')
+            .form-control.form-control-ckecked
+              span Тип сайта
+              ul.form-control__dropdown
+                mixin type(title)
+                  li.form-control__option(data-value=title)=title
+                +type('Landing page')  
+                +type('Корпоративный/Бизнес сайт')  
+                +type('Интернет магазин')  
+                +type('Сайт визитка')  
+                +type('Дизайн сайта')  
+        button(type="submit").btn.btn--filling-btn.btn--filled 
+          span Отправить

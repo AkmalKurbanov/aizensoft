@@ -1,3 +1,99 @@
 .light-bg {
   background-color: #f3f3f3;
 }
+
+.about {
+  &__wrap {
+    display: flex;
+  }
+
+  &__text {
+    height: rem(250);
+    overflow: hidden;
+    padding-right: rem(100);
+    width: 100%;
+    position: relative;
+
+    h2 {
+      font-weight: 700;
+      margin-bottom: rem(15);
+      color: #303030;
+      font-size: rem(18);
+    }
+
+    p {
+      color: #303030;
+      font-size: rem(18);
+      font-weight: 400;
+      line-height: rem(31);
+      margin-bottom: rem(30);
+    }
+
+    ul {
+      padding-left: rem(30);
+
+      li {
+        list-style-type: disc;
+        margin-bottom: rem(30);
+      }
+    }
+
+
+
+    &.open {
+      overflow: inherit;
+      height: auto;
+    }
+  }
+
+  &__img {
+    max-width: rem(220);
+    width: 100%;
+
+    img {
+      position: sticky;
+      right: 0;
+      top: 15%;
+      filter: grayscale(100%);
+      opacity: .1;
+    }
+  }
+
+  .more {
+    .close {
+      display: none;
+    }
+
+    .close,
+    .open {
+      position: relative;
+
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: rem(1);
+        background-color: $mc;
+        transition: $tr;
+      }
+    }
+
+    &.active {
+      .close {
+        display: block;
+      }
+
+      .open {
+        display: none;
+      }
+    }
+  }
+}

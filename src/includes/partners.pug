@@ -1,0 +1,16 @@
+.partners.section-indent
+  .container.indent 
+    h2.title Наши клиенты и партнеры
+    .subtitle Мы работаем с различными сферами бизнеса.
+    .partners__wrap
+      mixin partner(logo)
+        .partners__item
+          img(src="assets/img/"+ logo +"", alt="") 
+      +partner('partner1.svg')
+      +partner('partner2.svg')
+      +partner('partner3.svg')
+      +partner('partner4.svg')
+      +partner('partner5.svg')
+      +partner('partner6.svg')
+      +partner('partner7.svg')
+      +partner('partner8.svg')

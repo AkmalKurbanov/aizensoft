@@ -1,0 +1,53 @@
+.breadcrumbs {
+  margin-bottom: rem(30);
+
+  &__list {
+    * {
+      color: #303030;
+      font-size: rem(14);
+      line-height: rem(23);
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    position: relative;
+    padding-right: rem(12);
+
+    &:after {
+      position: absolute;
+      content: '»';
+      right: 0;
+    }
+
+    &:last-child {
+      padding: 0;
+      cursor: default;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    a {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: rem(1);
+        background-color: #303030;
+        transition: $tr;
+        left: 0;
+        bottom: 0;
+      }
+
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

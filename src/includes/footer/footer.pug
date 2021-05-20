@@ -1,1 +1,58 @@
-div 2
+footer.footer
+  .container.indent
+    .footer__wrap 
+      .footer__col
+        .logo
+          .logo__link
+            a(href="#")
+              img(class="color-logo" src="assets/img/logo.svg", alt="")
+        
+        .col-contacts
+          .col-contacts__contacts-item 
+              span Адрес:
+              p Украина, Киев улица Евгения Сверстюка, 19
+          .col-contacts__contacts-item 
+              span Телефон:
+              a(href="tel:38 (095) 307 888 5") 38 (095) 307 888 5
+          .col-contacts__contacts-item 
+              span E-mail:
+              a(href="mailto:info@brainlab.com.ua") info@brainlab.com.ua
+      .footer__col
+        .footer__menu
+          .footer__menu-title УСЛУГИ
+          ul
+            mixin footerMenu(item)
+              li 
+                a(href="#")=item
+            +footerMenu('Landing page')    
+            +footerMenu('Корпоративный сайт')    
+            +footerMenu('Интернет магазин')    
+            +footerMenu('Бизнес сайт')    
+            +footerMenu('Сайт визитка')    
+            +footerMenu('Дизайн сайта')    
+            +footerMenu('Разработка сайта')    
+            +footerMenu('Редизайн сайта')
+      .footer__col
+        .footer__menu
+          .footer__menu-title ИНФОРМАЦИЯ
+          ul
+            +footerMenu('О нас')
+            +footerMenu('Услуги')
+            +footerMenu('Портфолио')
+            +footerMenu('Блог')
+            +footerMenu('Создание сайта на WordPress')
+            +footerMenu('Создание сайта на Opencart')
+      .footer__col
+        .footer__menu
+          .footer__menu-title СОЦ. СЕТИ
+          ul
+            mixin social(social)
+              li
+                a(href="#" target="_blank")=social
+            +social('Facebook')
+            +social('Instagram')
+            +social('Linkedin')
+            +social('Behance')
+            +social('Vimeo')
+            +social('Pinterest') 
+

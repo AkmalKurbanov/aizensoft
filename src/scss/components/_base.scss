@@ -163,6 +163,9 @@ button {
 .btn {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  outline: none;
+
 
   &--ft {
     border: rem(2) solid $wc;
@@ -263,6 +266,21 @@ button {
       background-color: $mc;
     }
   }
+
+  &--small {
+    max-width: rem(285);
+    width: 100%;
+    min-height: rem(60);
+    padding: 0 rem(20);
+
+    span {
+      font-size: rem(16);
+    }
+
+    &:after {
+      right: rem(20);
+    }
+  }
 }
 
 // btn end
@@ -271,7 +289,7 @@ button {
 // curtain start
 .curtain,
 .curtain-light {
-  position: absolute;
+  position: fixed;
   border-radius: 100%;
   width: rem(56);
   height: rem(56);
@@ -334,6 +352,11 @@ button {
   &--light {
     color: $wc;
   }
+
+  &--big {
+    font-size: rem(55);
+  }
+
 }
 
 .subtitle {
@@ -357,6 +380,7 @@ button {
   align-items: center;
   position: relative;
   padding-right: rem(35);
+  cursor: pointer;
 
   &:hover {
     i {
@@ -394,19 +418,30 @@ button {
 // fade end
 
 // input start
+
 .form-control {
   position: relative;
   margin-bottom: rem(60);
   border-bottom: rem(2) solid $bc;
   height: rem(50);
 
-  input {
+  &--extended {
+    height: rem(60);
+    line-height: normal;
+  }
+
+  input,
+  textarea {
     width: 100%;
     height: 100%;
     z-index: 1;
     position: relative;
     font-size: rem(26);
     line-height: rem(50);
+    border: none;
+    background-color: transparent;
+    outline: none;
+    resize: none;
 
     &:focus+label {
       bottom: 100%;
@@ -414,6 +449,7 @@ button {
       color: #818181;
     }
   }
+
 
   label {
     position: absolute;
@@ -504,3 +540,43 @@ button {
 }
 
 // section indent end
+
+
+// slider btn start
+.prev-btn,
+.next-btn {
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: $tr;
+
+  i {
+    font-size: rem(30);
+  }
+
+  &:hover {
+    color: $mc;
+    padding-left: rem(20);
+  }
+}
+
+.prev-btn {
+  transform: rotate(180deg);
+  left: rem(20);
+
+  &:hover {
+    left: 0;
+  }
+}
+
+.next-btn {
+  right: rem(20);
+
+  &:hover {
+    right: 0;
+  }
+}
+
+// slider btn end 

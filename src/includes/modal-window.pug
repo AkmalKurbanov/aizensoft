@@ -1,0 +1,27 @@
+.modal
+  .modal__window
+    .modal__header  
+      .modal__title Оставить заявку
+      .modal__close
+        span ×
+    .modal__body 
+      form(action="")
+        mixin input(label,name,id)
+          .form-control
+            input(type="text" name=name id=id autocomplete="off")
+            label(for=id)=label
+        +input('Ваше имя *', 'Имя','name')   
+        +input('Ваш телефон *', 'Телефон','phone')   
+        +input('Ваш email *', 'Email','Email')
+        .form-control.form-control--extended
+          textarea(name="about" id="about") 
+          label(for="about") Кратко о вашем проекте
+        button.btn.btn--filling-btn.btn--filled.btn--small
+          span Отправить
+
+        input(type="hidden" name="Тип сайта" id="type-site")  
+        input(type="hidden" name="Дизайн" id="design-site")  
+        input(type="hidden" name="Вёрстка" id="page-proofs-site")  
+        input(type="hidden" name="Движок CMS" id="cms-site") 
+        input(type="hidden" name="Стоимость" id="price-site") 
+        input(type="hidden" name="Сроки" id="term-site") 

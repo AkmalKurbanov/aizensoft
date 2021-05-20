@@ -13,6 +13,7 @@ module.exports = function script() {
   // подключение библиотек
   return gulp.src([
       'node_modules/jquery/dist/jquery.js',
+      'node_modules/swiper/swiper-bundle.min.js',
       'src/js/scripts/*.js'
     ])
     // подключение библиотек

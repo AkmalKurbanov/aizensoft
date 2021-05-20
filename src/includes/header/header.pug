@@ -1,48 +1,101 @@
-header.header
-  .header__container
-    .logo
-      .logo__link
-        a(href="#")
-          img(class="color-logo" src="assets/img/logo.svg", alt="")
-          img(class="light-logo" src="assets/img/logo-light.svg", alt="")
+if darkBg
+  header.header
+    .header__container
+      .logo
+        .logo__link
+          a(href="#")
+            img(class="color-logo" src="assets/img/logo.svg", alt="")
+            img(class="light-logo" src="assets/img/logo-light.svg", alt="")
 
-      .lang
-        mixin lang(lang, active)
-          div(class=active).lang__item
-            a(href="#")=lang  
-        +lang('ru', 'active')
-        +lang('en')
-        +lang('de')
-    nav.header__nav.nav
-      mixin list(data)
-        ul
-          each item, index in  data.items
-            if index == 0
-              li.nav__item.nav__item--active
-                a(href="#")=item.title
-                if item.sublevel
-                  +list(item)
-            else
-              li.nav__item
-                a(href="#")=item.title
-                if item.sublevel
-                  +list(item)
+        .lang
+          mixin lang(lang, active)
+            div(class=active).lang__item
+              a(href="#")=lang  
+          +lang('ru', 'active')
+          +lang('en')
+          +lang('de')
+      nav.header__nav.nav
+        mixin list(data)
+          ul
+            each item, index in  data.items
+              if index == 0
+                li.nav__item.nav__item--active
+                  a(href="#")=item.title
+                  if item.sublevel
+                    +list(item)
+              else
+                li.nav__item
+                  a(href="#")=item.title
+                  if item.sublevel
+                    +list(item)
 
 
-      - var data = { "items": [{"title": "Разработка", "sublevel": true, "items":[{"title": "Landing page"},{"title": "Корпоративный сайт"},{"title": "Интернет магазин"},{"title": "Бизнес сайт"},{"title": "Сайт визитка"},{"title": "Разработка на Tilda"}]},{"title": "Дизайн", "sublevel": true, "items":[{"title": "Дизайн сайта"},{"title": "Редизайн сайта"}]},{"title": "Поддержка", "sublevel": true, "items":[{"title": "Доработка сайта"}]},{"title": "Продвижение", "sublevel": true, "items":[{"title": "SEO-продвижение сайта"},{"title": "Контекстная реклама"},{"title": "Настройка аналитики"}]},{"title": "Портфолио"}]}                 
-      +list(data)
-       
-    .header__contacts
-      ul 
-        li  
-          a(href="tel:38 (095) 307 888 5") 38 (095) 307 888 5
-        li  
-          a(href="mailto:info@brainlab.com.ua") info@brainlab.com.ua
-      .hamburger
-        span
-        span
-        span
-      .hamburger-close
-        span
-        span
-        span
+        - var data = { "items": [{"title": "Разработка", "sublevel": true, "items":[{"title": "Landing page"},{"title": "Корпоративный сайт"},{"title": "Интернет магазин"},{"title": "Бизнес сайт"},{"title": "Сайт визитка"},{"title": "Разработка на Tilda"}]},{"title": "Дизайн", "sublevel": true, "items":[{"title": "Дизайн сайта"},{"title": "Редизайн сайта"}]},{"title": "Поддержка", "sublevel": true, "items":[{"title": "Доработка сайта"}]},{"title": "Продвижение", "sublevel": true, "items":[{"title": "SEO-продвижение сайта"},{"title": "Контекстная реклама"},{"title": "Настройка аналитики"}]},{"title": "Портфолио"}]}                 
+        +list(data)
+        
+      .header__contacts
+        ul 
+          li  
+            a(href="tel:38 (095) 307 888 5") 38 (095) 307 888 5
+          li  
+            a(href="mailto:info@brainlab.com.ua") info@brainlab.com.ua
+        .hamburger
+          span
+          span
+          span
+        .hamburger-close
+          span
+          span
+          span
+
+
+
+else
+  header.header.inside-page
+    .header__container
+      .logo
+        .logo__link
+          a(href="#")
+            img(class="color-logo" src="assets/img/logo.svg", alt="")
+            img(class="light-logo" src="assets/img/logo-light.svg", alt="")
+
+        .lang
+          mixin lang(lang, active)
+            div(class=active).lang__item
+              a(href="#")=lang  
+          +lang('ru', 'active')
+          +lang('en')
+          +lang('de')
+      nav.header__nav.nav
+        mixin list(data)
+          ul
+            each item, index in  data.items
+              if index == 0
+                li.nav__item.nav__item--active
+                  a(href="#")=item.title
+                  if item.sublevel
+                    +list(item)
+              else
+                li.nav__item
+                  a(href="#")=item.title
+                  if item.sublevel
+                    +list(item)
+
+
+        - var data = { "items": [{"title": "Разработка", "sublevel": true, "items":[{"title": "Landing page"},{"title": "Корпоративный сайт"},{"title": "Интернет магазин"},{"title": "Бизнес сайт"},{"title": "Сайт визитка"},{"title": "Разработка на Tilda"}]},{"title": "Дизайн", "sublevel": true, "items":[{"title": "Дизайн сайта"},{"title": "Редизайн сайта"}]},{"title": "Поддержка", "sublevel": true, "items":[{"title": "Доработка сайта"}]},{"title": "Продвижение", "sublevel": true, "items":[{"title": "SEO-продвижение сайта"},{"title": "Контекстная реклама"},{"title": "Настройка аналитики"}]},{"title": "Портфолио"}]}                 
+        +list(data)
+        
+      .header__contacts
+        ul 
+          li  
+            a(href="tel:38 (095) 307 888 5") 38 (095) 307 888 5
+          li  
+            a(href="mailto:info@brainlab.com.ua") info@brainlab.com.ua
+        .hamburger
+          span
+          span
+          span
+        .hamburger-close
+          span
+          span
+          span

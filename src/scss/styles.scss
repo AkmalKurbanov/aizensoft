@@ -7,6 +7,7 @@
 // @import "../../node_modules/--/--/";
 
 @import "../../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/swiper/swiper-bundle.min.css";
 //---------------------------------------------
 
 // подключение сгенерированных иконок(fontello),
@@ -32,10 +33,12 @@
 // Компоненты
 
 @import "components/base";
+@import "components/modal-window";
 @import "components/menu";
 @import "components/header";
 @import "components/list";
 @import "components/block-video";
+@import "components/breadcrumbs";
 @import "components/services";
 @import "components/portfolio";
 @import "components/questions";
@@ -43,4 +46,9 @@
 @import "components/light-bg";
 @import "components/partners";
 @import "components/contacts";
+@import "components/inside-page-video-block";
+@import "components/example";
+@import "components/process";
+@import "components/faq";
+@import "components/calculator";
 @import "components/footer";

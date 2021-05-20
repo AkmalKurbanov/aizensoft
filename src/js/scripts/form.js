@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  $('.form-control input').on('keyup', function () {
+  $('.form-control input, .form-control textarea').on('keyup', function () {
     var $this = $(this),
       val = $this.val();
 
