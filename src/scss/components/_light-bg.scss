@@ -13,6 +13,20 @@
     padding-right: rem(100);
     width: 100%;
     position: relative;
+    margin-bottom: rem(20);
+
+    @include lg {
+      padding-right: rem(50);
+    }
+
+    @include sm {
+      padding-right: rem(20);
+    }
+
+
+    @include xs {
+      padding-right: 0;
+    }
 
     h2 {
       font-weight: 700;
@@ -27,14 +41,28 @@
       font-weight: 400;
       line-height: rem(31);
       margin-bottom: rem(30);
+
+      @include sm {
+        font-size: rem(16);
+        line-height: rem(25);
+      }
     }
 
     ul {
       padding-left: rem(30);
 
       li {
-        list-style-type: disc;
-        margin-bottom: rem(30);
+        list-style-type: inherit;
+        margin-bottom: rem(20);
+      }
+    }
+
+    ol {
+      padding-left: rem(30);
+
+      li {
+        list-style-type: inherit;
+        margin-bottom: rem(20);
       }
     }
 
@@ -49,6 +77,18 @@
   &__img {
     max-width: rem(220);
     width: 100%;
+
+    @include md {
+      max-width: rem(120);
+    }
+
+    @include sm {
+      max-width: rem(100);
+    }
+
+    @include xs {
+      display: none;
+    }
 
     img {
       position: sticky;

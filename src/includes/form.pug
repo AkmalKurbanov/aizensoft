@@ -1,0 +1,31 @@
+.form.dark-bg.section-indent#form-js
+  .container.indent
+    h2.title.title--light.title--big Хотите сделать что-то великое?
+      |Позвольте помочь вам.
+    .subtitle.indent Готовы? Свяжитесь сегодня.
+    form(action="#")
+      mixin input(label,name,id)
+        .form-control.form-control--light
+          input(type="text" name=name id=id autocomplete="off")
+          label(for=id)=label
+      +input('Введите ваше имя *', 'Имя','name')   
+      +input('Номер телефона *', 'Телефон','phone')   
+      +input('Email *', 'Email','Email')
+      .form-control.form-control--light.form-control--extended
+        textarea#about(name='about')  
+        label(for='about') Кратко о вашем проекте
+      .form-control.form-control--light
+        input.select-type(type='hidden' value='1')
+        .form-control.form-control-ckecked.form-control--light
+          span Тип сайта
+          ul.form-control__dropdown
+            mixin type(title)
+              li.form-control__option(data-value=title)=title
+            +type('Landing page')  
+            +type('Корпоративный/Бизнес сайт')  
+            +type('Интернет магазин')  
+            +type('Сайт визитка')  
+            +type('Дизайн сайта')  
+
+    button(type="submit").btn.btn--filling-btn.btn--filled.btn--small
+      span Отправить

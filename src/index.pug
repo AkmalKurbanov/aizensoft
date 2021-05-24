@@ -9,12 +9,12 @@ block main
       .curtain
       .curtain-light
 
-      .block-video.video-bg
+      .block-video.video-bg(style="background-image: url('assets/img/hero-bg.jpg')")
         video(muted="" loop="" autoplay="" playsinline="")
           source(src='assets/img/videobg.mp4' type="video/mp4")
         .video-bg__info
           .video-bg__title 
-            h1 Создаем эффективные сайты для вашего бизнеса
+            h1 Создаем эффективные сайты <br> для вашего бизнеса
             span Веб студия Aizen Soft
           .video-bg__links 
             a(href="#").btn.btn--ft Портфолио 
@@ -48,9 +48,9 @@ block main
             +list('Контекстная реклама','Привлекаем на сайт целевой трафик. Увеличиваем количество лидов и обьемы продаж.','от 450$/месяц')    
             +list('Настройка аналитики','Помогаем измерять эффективность продвижения сайта по разным каналам и оптимизировать их.','от 100$')    
           .list__btn-wrap
-            a(href="#").btn.btn--filling-btn.btn--filled
+            a(href="#form-js").btn.btn--filling-btn.btn--filled.form-js
               span Отправить запрос
-            a(href="#").btn.btn--filling-btn
+            a(href="#calculator-js").btn.btn--filling-btn
               span Калькулятор стоимости
 
 
@@ -64,12 +64,12 @@ block main
       include includes/contacts
       include includes/calculator
       include includes/about
-
+      include includes/form
      
    
  
-      
+     
     include includes/footer/footer
-    include includes/modal-window
+    //- include includes/modal-window
 
   include includes/scripts 

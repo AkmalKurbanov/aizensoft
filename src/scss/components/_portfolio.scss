@@ -1,6 +1,11 @@
 .portfolio {
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
+
+  @include xs {
+    flex-direction: 100%;
+  }
 
   &__item {
     flex-basis: 33.33%;
@@ -11,10 +16,38 @@
     height: rem(400);
     padding: 0 rem(30) rem(40);
 
+    @include lg {
+      height: rem(300);
+      padding: 0 rem(20) rem(20);
+    }
+
+    @include md {
+      flex-basis: 50%;
+      height: rem(350);
+    }
+
+    @include sm {
+      height: rem(300);
+    }
+
+    @include xs {
+      flex-basis: 100%;
+    }
+
+    .more {
+      * {
+        color: $wc;
+      }
+    }
+
     &:last-child {
       align-items: center;
       justify-content: center;
       padding: 0;
+
+      @include xs {
+        height: rem(130);
+      }
 
       &:hover {
         .portfolio__item-bg {
@@ -22,13 +55,25 @@
             transform: scale(1.5);
             margin: 0 rem(50);
 
+            @include lg {
+              margin: 0 rem(30);
+            }
+
+
+
             &:nth-child(2) {
               transform: scale(2.5);
+
+              @include lg {
+                transform: scale(1.5);
+              }
 
               &:before {
                 transform: translate(-50%, -50%) scale(3);
                 opacity: .3;
                 margin: 0;
+
+
               }
             }
           }
@@ -109,6 +154,10 @@
   &__category {
     color: $wc;
     font-weight: 500;
+
+    @include lg {
+      font-size: rem(14);
+    }
   }
 
   &__top-info,
@@ -120,6 +169,10 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+
+    @include md {
+      flex-direction: column;
+    }
   }
 
   &__title {
@@ -127,6 +180,15 @@
     font-size: rem(30);
     font-weight: 700;
     line-height: rem(38);
+
+    @media screen and (max-width: 1400px) {
+      font-size: rem(25);
+      line-height: rem(33);
+    }
+
+    @include lg {
+      font-size: rem(16);
+    }
   }
 
   &__item-bg {
@@ -152,6 +214,14 @@
         background-color: #ececec;
         display: flex;
         align-items: center;
+      }
+    }
+  }
+
+  &--filter {
+    .portfolio__item {
+      &:last-child {
+        display: none;
       }
     }
   }

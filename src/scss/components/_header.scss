@@ -1,9 +1,201 @@
 .header {
   padding: rem(25) 0 rem(20);
-  position: absolute;
+  position: fixed;
   z-index: 3;
   transition: $tr;
   width: 100%;
+
+  @include xs {
+    padding: rem(20) 0;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 90%;
+    width: 100%;
+    margin: auto;
+    padding: 0 rem(15);
+
+    @include lg {
+      max-width: 95%;
+    }
+
+    @include xs {
+      max-width: 100%;
+    }
+  }
+
+  .nav {
+    width: 100%;
+    max-width: 100%;
+
+    @include md {
+      display: none;
+    }
+
+    ul {
+      text-align: center;
+    }
+
+    &__item {
+      display: inline-flex;
+      position: relative;
+      border-bottom: rem(1) solid transparent;
+
+      &:hover {
+        border-color: $mc;
+        background-color: #191919;
+
+        ul {
+          display: block;
+        }
+      }
+
+
+      a {
+        font-size: rem(19);
+        font-weight: 700;
+        color: $wc;
+        padding: rem(8) rem(25);
+        display: block;
+
+        @media screen and (max-width: 1500px) {
+          padding: rem(5) rem(20);
+          font-size: rem(16);
+        }
+
+        @media screen and (max-width: 1300px) {
+          padding: rem(5) rem(10);
+          font-size: rem(16);
+        }
+
+        @include lg {
+          font-size: rem(15);
+          padding: rem(5) rem(7);
+        }
+
+        &:hover {
+          color: $mc;
+        }
+      }
+
+      ul {
+        position: absolute;
+        display: none;
+        text-align: left;
+        top: 102%;
+        left: 0;
+        background-color: #191919;
+        padding: rem(15) 0;
+        min-width: rem(220);
+
+        li {
+          display: block;
+          border: none;
+
+          a {
+            font-size: rem(17);
+            font-weight: 400;
+            line-height: rem(22);
+          }
+        }
+      }
+    }
+  }
+
+
+  &__contacts {
+    text-align: right;
+    max-width: rem(250);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1500px) {
+      max-width: rem(230);
+    }
+
+    @media screen and (max-width: 1300px) {
+      max-width: rem(210);
+    }
+
+    @include lg {
+      max-width: rem(200);
+    }
+
+    @include md {
+      max-width: rem(230);
+    }
+
+    @include xs {
+      max-width: rem(120);
+      justify-content: flex-end;
+    }
+
+    .phone {
+      margin-right: rem(10);
+      display: none;
+      cursor: pointer;
+      z-index: 0;
+
+      @include xs {
+        display: block;
+      }
+
+      i {
+        font-size: rem(25);
+      }
+    }
+
+    ul {
+      @include xs {
+        display: none;
+        position: absolute;
+        background-color: $wc;
+        padding: rem(10);
+        z-index: 9;
+        top: 90%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, .1);
+      }
+
+      li {
+        display: block;
+        margin-bottom: rem(5);
+
+        &:last-child {
+          margin: 0;
+        }
+
+        a {
+          color: $wc;
+          font-weight: 500;
+
+          @media screen and (max-width: 1500px) {
+            font-size: rem(14);
+          }
+
+          @include lg {
+            font-size: rem(13);
+          }
+
+          @include md {
+            font-size: rem(16);
+          }
+
+          @include xs {
+            color: $bc;
+          }
+
+          &:hover {
+            color: $mc;
+          }
+        }
+      }
+    }
+  }
 
   &.inside-page {
     background-color: $wc;
@@ -50,12 +242,6 @@
       }
     }
 
-    .header__contacts {
-      a {
-        color: #515151;
-      }
-    }
-
     .hamburger {
       background-color: $bc;
 
@@ -63,10 +249,22 @@
         background-color: $wc;
       }
     }
+
+    .header__contacts {
+      a {
+        color: $tc;
+      }
+
+    }
+
+    .phone {
+      i {
+        color: $bc !important;
+      }
+    }
   }
 
   &.fixed {
-    position: fixed;
     background-color: $wc;
     box-shadow: 0 3px 6px rgba(0, 0, 0, .1);
 
@@ -113,8 +311,16 @@
     }
 
     .header__contacts {
+
       a {
-        color: #515151;
+        color: $tc;
+      }
+
+      .phone {
+
+        i {
+          color: $bc !important;
+        }
       }
     }
 
@@ -129,104 +335,13 @@
 
   &.color-options {
     position: fixed;
-  }
 
-
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: rem(1680);
-    width: 100%;
-    margin: auto;
-  }
-
-  .nav {
-    width: 100%;
-    max-width: 100%;
-
-    ul {
-      text-align: center;
+    .color-logo {
+      display: none;
     }
 
-    &__item {
-      display: inline-flex;
-      position: relative;
-      border-bottom: rem(1) solid transparent;
-
-      &:hover {
-        border-color: $mc;
-        background-color: #191919;
-
-        ul {
-          display: block;
-        }
-      }
-
-
-      a {
-        font-size: rem(19);
-        font-weight: 700;
-        color: $wc;
-        padding: rem(8) rem(25);
-        display: block;
-
-        &:hover {
-          color: $mc;
-        }
-      }
-
-      ul {
-        position: absolute;
-        display: none;
-        text-align: left;
-        top: 102%;
-        left: 0;
-        background-color: #191919;
-        padding: rem(15) 0;
-        min-width: rem(220);
-
-        li {
-          display: block;
-          border: none;
-
-          a {
-            font-size: rem(17);
-            font-weight: 400;
-            line-height: rem(22);
-          }
-        }
-      }
-    }
-  }
-
-
-  &__contacts {
-    text-align: right;
-    max-width: rem(250);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    ul {
-      li {
-        display: block;
-        margin-bottom: rem(5);
-
-        &:last-child {
-          margin: 0;
-        }
-
-        a {
-          color: $wc;
-          font-weight: 400;
-
-          &:hover {
-            color: $mc;
-          }
-        }
-      }
+    .light-logo {
+      display: block;
     }
   }
 }

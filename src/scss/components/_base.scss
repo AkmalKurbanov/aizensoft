@@ -9,6 +9,7 @@ body {
   height: 100%;
   position: relative;
   font-family: $gl;
+  color: $tc;
 }
 
 ::-webkit-scrollbar {
@@ -83,21 +84,30 @@ button {
   width: 100%;
   position: relative;
   box-sizing: border-box;
+  padding: 0 rem(35);
 
-  &.indent {
-    max-width: rem(1370px);
-  }
-
-  @include lg {
-    max-width: rem(960px);
-  }
-
-  @include sm {
-    max-width: rem(540px);
-  }
 
   @include xs {
     max-width: 100%;
+    padding: 0 rem(15);
+  }
+
+  &.indent {
+    max-width: rem(1300px);
+
+    @include lg {
+      max-width: rem(960px);
+    }
+
+    @include sm {
+      max-width: rem(640px);
+    }
+
+    @include xs {
+      max-width: 100%;
+      padding: 0 rem(15);
+    }
+
   }
 }
 
@@ -109,6 +119,14 @@ button {
   display: flex;
   align-items: center;
   margin-left: rem(40);
+
+  @media screen and (max-width: 1300px) {
+    margin-left: rem(20);
+  }
+
+  @include xs {
+    margin-left: rem(10);
+  }
 
   &__item {
     margin-right: rem(10);
@@ -126,7 +144,7 @@ button {
 
   a {
     font-weight: 700;
-    color: #515151;
+    color: $mc;
 
     &:hover {
       color: $wc;
@@ -143,8 +161,41 @@ button {
   max-width: rem(250);
   width: 100%;
 
+  @media screen and (max-width: 1500px) {
+    max-width: rem(230);
+  }
+
+  @media screen and (max-width: 1300px) {
+    max-width: rem(210);
+  }
+
+  @include lg {
+    width: rem(180);
+  }
+
+  @include md {
+    width: rem(230);
+  }
+
+  @include xs {
+    width: rem(160);
+  }
+
   &__link {
     width: rem(130);
+
+    @include lg {
+      width: rem(90);
+    }
+
+    @include md {
+      width: rem(130);
+    }
+
+    @include xs {
+      width: rem(130);
+    }
+
 
     .color-logo {
       display: none;
@@ -167,6 +218,7 @@ button {
   outline: none;
 
 
+
   &--ft {
     border: rem(2) solid $wc;
     font-weight: 600;
@@ -174,6 +226,12 @@ button {
     font-size: rem(27);
     padding: rem(15);
     line-height: rem(22);
+
+
+    @include xs {
+      padding: rem(5);
+      font-size: rem(15);
+    }
 
     &:hover {
       background-color: $wc;
@@ -345,8 +403,40 @@ button {
   color: $bc;
   font-size: rem(36);
 
+  @include lg {
+    font-size: rem(34);
+  }
+
+  @include md {
+    font-size: rem(32);
+  }
+
+  @include sm {
+    font-size: rem(30);
+  }
+
+  @include xs {
+    font-size: rem(28);
+  }
+
   &.indent {
     margin-bottom: rem(60);
+
+    @include lg {
+      margin-bottom: rem(50);
+    }
+
+    @include md {
+      margin-bottom: rem(40);
+    }
+
+    @include sm {
+      margin-bottom: rem(30);
+    }
+
+    @include xs {
+      margin-bottom: rem(20);
+    }
   }
 
   &--light {
@@ -355,6 +445,22 @@ button {
 
   &--big {
     font-size: rem(55);
+
+    @include lg {
+      font-size: rem(45);
+    }
+
+    @include md {
+      font-size: rem(40);
+    }
+
+    @include sm {
+      font-size: rem(35);
+    }
+
+    @include xs {
+      font-size: rem(30);
+    }
   }
 
 }
@@ -367,6 +473,22 @@ button {
 
   &.indent {
     margin-bottom: rem(60);
+
+    @include lg {
+      margin-bottom: rem(50);
+    }
+
+    @include md {
+      margin-bottom: rem(40);
+    }
+
+    @include sm {
+      margin-bottom: rem(40);
+    }
+
+    @include xs {
+      margin-bottom: rem(30);
+    }
   }
 }
 
@@ -374,13 +496,25 @@ button {
 
 // more start
 .more {
-  color: $mc;
-  font-weight: 500;
   display: flex;
   align-items: center;
   position: relative;
   padding-right: rem(35);
   cursor: pointer;
+
+  a,
+  span {
+    color: $mc;
+    font-weight: 500;
+  }
+
+  @include lg {
+    font-size: rem(15);
+  }
+
+  @include md {
+    font-size: rem(14);
+  }
 
   &:hover {
     i {
@@ -418,12 +552,120 @@ button {
 // fade end
 
 // input start
+.form {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include xs {
+      flex-direction: column;
+    }
+
+    .form-control {
+      flex-basis: 30%;
+      border: none;
+
+      @include sm {
+        flex-basis: 32%;
+      }
+
+      @include xs {
+        flex-basis: 100%;
+        margin-bottom: rem(35);
+
+      }
+
+      .form-control-ckecked {
+        @include xs {
+          margin-bottom: 0;
+        }
+      }
+
+      input,
+      textarea {
+        border-bottom: rem(2) solid #ddd;
+        color: $wc !important;
+        overflow: hidden;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      &:nth-child(4) {
+        flex-basis: 60%;
+      }
+
+      &:nth-child(5) {
+        flex-basis: 35%;
+      }
+    }
+
+    .form-control-ckecked {
+      border-bottom: rem(2) solid #ddd;
+    }
+
+    .form-control--extended {
+      height: auto;
+
+      textarea {
+        resize: vertical !important;
+        height: rem(50);
+
+        @media screen and (max-width: 1400px) {
+          height: rem(45);
+        }
+
+        @media screen and (max-width: 1300px) {
+          height: rem(40);
+        }
+
+        @include lg {
+          height: rem(30);
+        }
+      }
+    }
+  }
+
+  .btn {
+    @include lg {
+      margin: auto;
+      display: flex;
+    }
+  }
+}
 
 .form-control {
   position: relative;
   margin-bottom: rem(60);
   border-bottom: rem(2) solid $bc;
   height: rem(50);
+
+  @media screen and (max-width: 1400px) {
+    height: rem(45);
+    margin-bottom: rem(57);
+  }
+
+  @media screen and (max-width: 1300px) {
+    height: rem(40);
+    margin-bottom: rem(54);
+  }
+
+  @include lg {
+    height: rem(30);
+    margin-bottom: rem(51);
+  }
+
+  @include md {
+    margin-bottom: rem(48);
+  }
 
   &--extended {
     height: rem(60);
@@ -443,6 +685,26 @@ button {
     outline: none;
     resize: none;
 
+    @media screen and (max-width: 1400px) {
+      line-height: rem(45);
+      font-size: rem(24);
+    }
+
+    @media screen and (max-width: 1300px) {
+      line-height: rem(40);
+      font-size: rem(22);
+    }
+
+    @include lg {
+      line-height: rem(30);
+      font-size: rem(20);
+    }
+
+    @include md {
+      font-size: rem(18);
+      line-height: rem(28);
+    }
+
     &:focus+label {
       bottom: 100%;
       font-size: rem(16);
@@ -458,6 +720,26 @@ button {
     transition: $tr;
     font-size: rem(26);
     color: $bc;
+
+    @media screen and (max-width: 1400px) {
+      font-size: rem(23);
+      bottom: rem(13);
+    }
+
+    @media screen and (max-width: 1300px) {
+      font-size: rem(21);
+      bottom: rem(12);
+    }
+
+    @include lg {
+      font-size: rem(19);
+      bottom: rem(11);
+    }
+
+    @include md {
+      font-size: rem(17);
+      bottom: rem(11);
+    }
 
     &.not-empty {
       bottom: 100%;
@@ -510,6 +792,15 @@ button {
       font-size: rem(30);
       transition: $tr;
       color: #828282;
+
+      @media screen and (max-width: 1400px) {
+        font-size: rem(25);
+      }
+
+      @media screen and (max-width: 1300px) {
+        font-size: rem(20);
+      }
+
     }
 
     span {
@@ -517,6 +808,25 @@ button {
       padding-top: rem(10);
       font-size: rem(26);
       color: $bc;
+
+      @media screen and (max-width: 1400px) {
+        font-size: rem(23);
+        padding-top: rem(4);
+      }
+
+      @media screen and (max-width: 1300px) {
+        font-size: rem(21);
+        padding-top: rem(3);
+      }
+
+      @include lg {
+        font-size: rem(19);
+        padding-top: 0;
+      }
+
+      @include md {
+        font-size: rem(17);
+      }
     }
 
     &--active {
@@ -529,6 +839,14 @@ button {
       }
     }
   }
+
+  &.form-control--light {
+    border-color: #bbb;
+
+    * {
+      color: $tc !important;
+    }
+  }
 }
 
 // input end
@@ -537,6 +855,22 @@ button {
 // section indent start
 .section-indent {
   padding: rem(80) 0;
+
+  @include lg {
+    padding: rem(70) 0;
+  }
+
+  @include md {
+    padding: rem(50) 0;
+  }
+
+  @include sm {
+    padding: rem(40) 0;
+  }
+
+  @include xs {
+    padding: rem(30) 0;
+  }
 }
 
 // section indent end
@@ -580,3 +914,94 @@ button {
 }
 
 // slider btn end 
+
+
+// fiter start
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: rem(30) 0;
+
+  &__wrap {
+    display: flex;
+    border: rem(1) solid #d7d7d7;
+
+    @include sm {
+      max-width: rem(400);
+    }
+
+    @include xs {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  &__item {
+    padding: rem(15) rem(30);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-right: rem(1) solid #d7d7d7;
+
+    @include sm {
+      padding: rem(10) rem(20);
+      font-size: rem(13);
+    }
+
+    @include xs {
+      justify-content: flex-start;
+      border-right: none;
+      border-bottom: rem(1) solid #d7d7d7;
+    }
+
+    &:last-child {
+      border: none;
+    }
+
+    &:hover {
+      border-color: $mc;
+
+      &:after {
+        width: 100%;
+      }
+
+      span {
+        color: $wc;
+      }
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: $mc;
+      transition: $tr;
+    }
+
+    span {
+      position: relative;
+      color: $bc;
+      z-index: 1;
+      transition: $tr;
+    }
+
+    &.active {
+      border-color: $mc;
+
+      span {
+        color: $wc;
+      }
+
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// fiter end

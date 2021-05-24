@@ -1,21 +1,49 @@
 .calculator {
+  overflow: hidden;
+
   &__wrap {
     display: flex;
+    justify-content: space-between;
     margin-top: rem(60);
+
+    @include md {
+      flex-direction: column;
+    }
   }
 
   &__calculated {
-    flex-basis: 67.9%;
+    flex-basis: 69%;
     display: flex;
+    justify-content: space-between;
+
+    @include md {
+      flex-basis: 100%;
+    }
+
+    @include xs {
+      flex-wrap: wrap;
+    }
   }
 
   &__result-total {
-    flex-basis: 32%;
+    flex-basis: 30%;
+
+    @include md {
+      flex-basis: 100%;
+    }
 
     .btn {
       max-width: 100%;
       width: 100%;
       margin-top: rem(20);
+
+      @include lg {
+        max-width: rem(285);
+        width: 100%;
+        min-height: rem(60);
+        padding: 0 rem(20);
+        margin-top: rem(15);
+      }
     }
   }
 
@@ -25,9 +53,22 @@
     }
 
     &__col {
-      max-width: rem(250);
       width: 100%;
-      margin-right: rem(30);
+      flex-basis: 23%;
+
+      @media screen and (max-width: 1400px) {
+        margin-right: rem(10);
+      }
+
+      @include lg {
+        margin-right: rem(10);
+      }
+
+      @include xs {
+        flex-basis: 49%;
+        margin: 0;
+      }
+
 
       &:last-child {
         margin-right: 0;
@@ -37,7 +78,93 @@
         pointer-events: none;
         opacity: 0.3;
       }
+
+      &:nth-child(3),
+      &:nth-child(4) {
+        .calculate__info {
+          .calculate__desc {
+            left: auto;
+            right: calc(100% + 60px);
+
+            &:before {
+              left: 100%;
+              transform: rotate(180deg);
+            }
+          }
+
+          &:hover {
+            .calculate__desc {
+              left: auto;
+              right: calc(100% + 30px);
+            }
+          }
+        }
+      }
+
+      @include sm {
+        &:nth-child(2) {
+          .calculate__info {
+            .calculate__desc {
+              left: rem(-130);
+              right: 50%;
+              top: 0;
+
+              &:before {
+                transform: rotate(90deg) !important;
+                bottom: 88%;
+                top: auto !important;
+                left: 40%;
+              }
+            }
+
+            &:hover {
+              .calculate__desc {
+                top: calc(100% + 30px);
+              }
+            }
+          }
+        }
+      }
+
+      @include xs {
+
+        &:nth-child(1),
+        &:nth-child(3) {
+          .calculate__desc {
+            &:before {
+              transform: rotate(90deg) !important;
+              bottom: 88% !important;
+              top: auto !important;
+              left: 36% !important;
+            }
+          }
+        }
+        
+        &:nth-child(2),
+        &:nth-child(4) {
+          .calculate__desc {
+            left: auto !important;
+            right: rem(-20) !important;
+            
+            &:before {
+              transform: rotate(90deg) !important;
+              bottom: 88% !important;
+              top: auto !important;
+              left: 85% !important;
+            }
+          }
+        }
+      }
+
+
+
+
+
+
+
     }
+
+
 
     &__col-title {
       text-align: center;
@@ -45,6 +172,17 @@
       font-size: rem(18);
       font-weight: 600;
       margin-bottom: rem(25);
+
+      @include lg {
+        font-size: rem(16);
+        margin-bottom: rem(20);
+      }
+
+      @include md {
+        font-size: rem(14);
+        margin-bottom: rem(15);
+      }
+
     }
 
     &__item {
@@ -57,6 +195,15 @@
       cursor: pointer;
       position: relative;
       margin-bottom: rem(10);
+
+      @include lg {
+        min-height: rem(50);
+        padding: 0 rem(10);
+      }
+
+      @include sm {
+        min-height: rem(40);
+      }
 
       &:after {
         position: absolute;
@@ -92,6 +239,14 @@
       font-weight: 500;
       font-size: rem(18);
       z-index: 1;
+
+      @include lg {
+        font-size: rem(14);
+      }
+
+      @include sm {
+        font-size: rem(11);
+      }
     }
 
     &__info {
@@ -104,6 +259,10 @@
           visibility: visible;
           pointer-events: inherit;
           left: calc(100% + 30px);
+
+          @include xs {
+            top: calc(100% + 30px);
+          }
         }
       }
 
@@ -126,7 +285,14 @@
       visibility: hidden;
       pointer-events: none;
       transition: $tr;
-      z-index: 9;
+      z-index: 999;
+      box-sizing: border-box;
+
+      @include xs {
+        top: -20%;
+        left: rem(-113) !important;
+        width: rem(300);
+      }
 
       &:before {
         position: absolute;
@@ -181,6 +347,14 @@
       display: none;
     }
 
+    .calculator__item-wrap {
+      margin-top: rem(45);
+
+      @include md {
+        margin-top: rem(25);
+      }
+    }
+
     &__reset {
       font-size: rem(15);
       font-weight: 500;
@@ -188,7 +362,6 @@
       float: right;
       cursor: pointer;
       position: relative;
-      margin-bottom: rem(20);
 
       &:hover {
         &:after {
@@ -215,6 +388,10 @@
       align-items: center;
       justify-content: space-between;
 
+      @include lg {
+        padding: rem(10);
+      }
+
       &:nth-child(odd) {
         background-color: #f9f9f9;
       }
@@ -238,6 +415,10 @@
       color: #d2d2d2;
       font-weight: 600;
 
+      @include lg {
+        font-size: rem(12);
+      }
+
       span {
         color: #b0b0b0;
         margin-left: rem(10);
@@ -249,9 +430,17 @@
       font-weight: 600;
       font-size: rem(13);
 
+      @include lg {
+        font-size: rem(10);
+      }
+
       span {
         font-size: rem(16);
         margin-right: rem(3);
+
+        @include lg {
+          font-size: rem(13);
+        }
       }
     }
 
@@ -265,6 +454,10 @@
       font-weight: 700;
       color: $bc;
       margin: rem(10) 0;
+
+      @include lg {
+        font-size: rem(13);
+      }
 
       p {
         display: inline-block;

@@ -3,6 +3,10 @@
     display: flex;
     justify-content: space-between;
     padding-top: rem(20);
+
+    @include sm {
+      flex-direction: column;
+    }
   }
 
   &__gif,
@@ -10,13 +14,55 @@
     flex-basis: 45%;
   }
 
+  &__gif {
+    display: flex;
+    align-items: center;
+
+    @include sm {
+      margin-bottom: rem(20);
+    }
+  }
+
   &__form {
     border: rem(2) solid $bc;
     padding: rem(60) rem(70);
+    
+    @media screen and (max-width: 1400px) {
+      padding: rem(55) rem(60);
+    }
+
+    @media screen and (max-width: 1300px) {
+      padding: rem(45) rem(50);
+    }
+
+    @include lg {
+      padding: rem(35) rem(30);
+    }
+
+    @include md {
+      padding: rem(35) rem(25);
+    }
+
+    @include sm {
+      padding: rem(35) rem(20);
+    }
+
+    @include xs {
+      padding: rem(35) rem(15);
+    }
 
     .btn {
       width: 100%;
       max-width: 100%;
+      margin: auto;
+      display: flex;
+      @include sm {
+        max-width: rem(285);
+        width: 100%;
+        min-height: rem(60);
+        padding: 0 rem(20);
+      }
+
     }
   }
 

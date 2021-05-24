@@ -1,0 +1,151 @@
+extends layout/main/main
+block title
+  | Корпоративный сайт
+block main
+  .wrapper
+    .content
+
+      - var darkBg = false
+      include includes/header/header
+      .curtain
+      .curtain-light
+
+      .inside-page-video-block.inside-video
+        video(muted="" loop="" autoplay="" playsinline="")
+          source(src='assets/img/page-video.mp4' type="video/mp4")
+        .container.indent
+          .inside-video__info
+            include includes/breadcrumbs
+            +breadcrumbs(['Веб студия','Создание сайтов'], 'Корпоративный сайт')
+            .top-title Стоимость от 
+              span.price 2100 $
+            .inside-video__info-wrap
+              .inside-video__info-col  
+                h1 Создайте имидж компании!
+                  span Корпоративный сайт
+                .inside-video__info-btn-wrap
+                  a(href="#").btn.btn--filling-btn.btn--filled.btn--small
+                    span Калькулятор стоимости
+                  a(href="#form-js").btn.btn--filling-btn.btn--small.form-js
+                    span Заказать проект
+              .inside-video__info-col
+                p Задача корпоративного сайта - правильная подача информации о компании, ее услугах и товарах. Такой тип сайта позволит улучшить имидж, узнаваемость и коммуникацию между пользователями и компанией.
+                p Сайт становится единственным официальным лицом вашей компании в интернете.
+
+      
+
+      .example.section-indent 
+        .container.indent
+          .example__wrap
+            .swiper-container.exaple-sites-slider
+              .swiper-wrapper
+                mixin example(img, info, name)
+                  .swiper-slide
+                    .example__title=name
+                    .example__img
+                      img(src="assets/img/"+ img +"", alt="")
+                    .example__info
+                      p Тип сайта: 
+                        span=info
+                      a(href="#").btn.btn--filling-btn.btn--filled.btn--small
+                        span Смотреть кейс
+                +example('example1.jpg','Корпоративный сайт-каталог.', 'Корпоративный сайт-каталог бренда Fujitsu в Украине.')        
+                +example('example2.jpg','Корпоративный сайт-каталог.', 'Климатические системы TCL, ПРЕДСТАВИТЕЛЬСТВО В УКРАИНЕ.')        
+                +example('example3.jpg','Корпоративный сайт.', 'КОМПАНИЯ ПО УПРАВЛЕНИЮ АКТИВАМИ «АЛЬТА ИНВЕСТМЕНТ»')        
+            .next-btn
+              i.icon-arrow
+            .prev-btn
+              i.icon-arrow
+              
+      .dark-bg.section-indent
+        .container.indent
+          h2.title.title--light.title--big.indent Какие задачи решает корпоративный сайт?
+          .list.list--dark
+            mixin list(title, desc)
+              .list__item.fadeInUp
+                .list__top
+                  h3=title
+                  p=desc
+            +list('Позиционирование','Сайт создаёт первое впечатление и транслирует философию компании, улучшая имидж на рынке.')
+            +list('Маркетинг','С помощью сайта возможна рекламная кампания по продвижению вашего бизнеса в интернете.')
+            +list('Масштаб','Вы имеете возможность привлечь новых клиентов и партнеров с других регионов и стран, тем самым масштабируя свой бизнес')
+
+      .process.section-indent
+        .container.indent
+          .process__wrap 
+            .process__col
+              h2.title.title--big.indent Процесс создания корпоративного сайта
+              .process__desc
+                mixin desc(title, desc)
+                  .process__desc-item.fadeInUp 
+                    .process__desc-title=title
+                    p=desc
+                +desc('Анализ','Изучаем ЦА и конкурентов, готовим seo на этапе разработки.')
+                +desc('Прототип','Создаем путь пользователя и его взаимодействие с контентом')
+                +desc('Дизайн','Разрабатываем дизайн, который оставляет яркое впечатление о компании.')
+                +desc('Разработка','Делаем сайт с интерактивным дизайном, динамическими элементами и адаптивной версткой.')
+            .process__col
+              .process__video
+                video(muted="" loop="" autoplay="" playsinline="")
+                  source(src='assets/img/corparate.mp4' type="video/mp4")
+              a(href="#").btn.btn--filling-btn.btn--filled.btn--small
+                span Рассчитать стоимость
+
+      include includes/portfolio
+      
+      include includes/questions
+      
+      include includes/why
+
+      .modules.section-indent
+        .container.indent
+          .modules__wrap
+            .modules__col 
+              h2.title.title--big.indent Базовые модули корпоративного сайта
+
+              p Стоимость разработки бизнес сайта, в основном зависит от его структуры и набора модулей. В зависимости от ваших бизнес-задач в разработку войдут как универсальные готовые решения, так и специально разработанные под ваши нужды модули.
+
+              p Стоимость разработки бизнес сайта, в основном зависит от его структуры и набора модулей. В зависимости от ваших бизнес-задач в разработку войдут как универсальные готовые решения, так и специально разработанные под ваши нужды модули.
+
+              .modules__btn-wrap
+                a(href="#").btn.btn--filling-btn.btn--filled.btn--small
+                  span Оставить заявку 
+            .modules__col
+              .modules__list 
+                mixin module(title)
+                  .modules__item=title
+                +module('Модуль «Слайдер»')
+                +module('Модуль «Блог» (для новостей, cтатей, полезной информации)')
+                +module('Форма обратной связи «Заказ обратного звонка»')
+                +module('Отзывы о компании')
+                +module('Модуль «Фото/видео галерея»')
+                +module('Вопросы и ответы (FAQ)')
+                +module('Интерактивная карта гугл с месторасположением магазина на карте')
+                +module('Подписка на рассылку новостей / статей')
+                +module('Модуль мультиязычности')
+              .modules__btn-wrap
+                a(href="#").btn.btn--filling-btn.btn--filled.btn--small
+                  span Оставить заявк  
+      .faq.section-indent
+        .container.indent 
+          h2.title.indent Частые вопросы по разработке Дизайна сайта
+          .faq__wrap
+            mixin faq(title, desc)
+              .faq__item
+                .faq__title
+                  span=title   
+                .faq__desc 
+                  p=desc
+            +faq('Что входит в разработку дизайна?','Качественный дизайн включает в себя продумывание пути пользователя, разработку прототипов всех страниц сайта для всех основных разрешений экрана, а также непосредственно сами макеты страниц на основе прототипов для всех основных разрешений экрана.')
+            +faq('Сколько стоит разработать UI/UX дизайн?','Бюджет зависит от количества страниц и требованиям по уровню дизайна (WOW-дизайн, строгий корпоративный, минималистичный и т.д.). Вилка цен колеблется от 400$ до 5000$. Примеры расчета вы можете посмотреть в нашем “калькуляторе стоимости”.')
+            +faq('Сколько вариантов дизайна Вы делаете?','Наша задача не закидать вас множеством вариантов картинок, а сделать дизайн продуманным и эффективным для выполнения целей поставленных перед сайтом. Поэтому мы стараемся провести исследования, определить лучшие решения для отзывчивого и понятного дизайна, и показать именно тот вариант, который удовлетворит требования клиента по стилю и способу подачи информации.')
+      
+      include includes/contacts
+      include includes/calculator
+      include includes/about
+
+      include includes/form
+    include includes/footer/footer
+    include includes/modal-window
+
+  include includes/scripts 

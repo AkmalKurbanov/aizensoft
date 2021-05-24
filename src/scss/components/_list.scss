@@ -3,6 +3,12 @@
   flex-wrap: wrap;
   margin-left: rem(-15);
   margin-right: rem(-15);
+  position: relative;
+  z-index: 1;
+
+  @include xs {
+    flex-direction: column;
+  }
 
   &__item {
     flex-basis: 33.33%;
@@ -15,6 +21,21 @@
     overflow: hidden;
     position: relative;
     margin-top: rem(20);
+    
+    @include lg {
+      margin-top: rem(15);
+      margin-bottom: rem(40);
+    }
+
+    @include sm {
+      flex-basis: 50%;
+      margin-bottom: rem(20);
+    }
+
+    @include xs {
+      flex-basis: 100%;
+      border-bottom: rem(1) solid #e1e1e1;
+    }
 
     * {
       transition: $tr;
@@ -97,6 +118,16 @@
       line-height: rem(35);
       margin-bottom: rem(15);
 
+      @include lg {
+        font-size: rem(20);
+        line-height: rem(32);
+      }
+
+      @include md {
+        font-size: rem(18);
+        line-height: rem(30);
+      }
+
       &:before {
         content: '';
         position: absolute;
@@ -114,6 +145,17 @@
       font-weight: 400;
       line-height: rem(24);
       margin-bottom: rem(50);
+
+      @include lg {
+        margin-bottom: rem(40);
+        font-size: rem(15);
+        line-height: rem(22);
+      }
+
+      @include md {
+        margin-bottom: rem(30);
+        font-size: rem(14);
+      }
     }
   }
 
@@ -125,11 +167,23 @@
     width: 100%;
     position: relative;
     z-index: 1;
+
+    @include xs {
+      max-width: 100%;
+    }
   }
 
   &__price {
     font-weight: 700;
     color: $bc;
+
+    @include lg {
+      font-size: rem(15);
+    }
+
+    @include md {
+      font-size: rem(14);
+    }
   }
 
   &__btn-wrap {
@@ -140,9 +194,30 @@
     align-items: center;
     justify-content: space-between;
 
+    @include sm {
+      flex-direction: column;
+      flex-basis: 45%;
+    }
+
     .btn {
       max-width: rem(428);
       width: 100%;
+
+      @include md {
+        flex-basis: 45%;
+      }
+
+      @include sm {
+        max-width: rem(285);
+        width: 100%;
+        min-height: rem(60);
+        padding: 0 rem(20);
+
+        &:first-child {
+          margin-bottom: rem(20);
+        }
+      }
+
     }
   }
 
@@ -158,6 +233,7 @@
     h3 {
       color: $wc;
       padding: 0;
+
       &:before {
         content: "00"counter(section);
         width: 0;

@@ -19,13 +19,27 @@
 
   &__title {
     background-color: #efefef;
-    padding: 0 rem(40);
+    padding: rem(20) rem(40);
     font-weight: 700;
-    line-height: rem(50);
     border-bottom: rem(1) solid #ddd;
-    color: #515151;
     cursor: pointer;
     position: relative;
+
+    @include lg {
+      padding-right: rem(25);
+    }
+
+    @include md {
+      padding-right: rem(20);
+    }
+
+    @include sm {
+      padding-right: rem(15);
+    }
+
+    @include xs {
+      padding-right: rem(10);
+    }
 
     &:before {
       position: absolute;
@@ -38,17 +52,35 @@
     }
 
     span {
+      display: block;
+      padding-left: rem(30);
+      position: relative;
+
+      @include sm {
+        font-size: rem(15);
+      }
+
+      @include xs {
+        line-height: rem(20);
+      }
+
       &:before {
+        position: absolute;
         content: '🥇 ';
+        top: rem(4);
+        left: 0;
       }
     }
   }
 
   &__desc {
     padding: rem(20);
-    color: #515151;
     line-height: rem(22);
     display: none;
+
+    @include sm {
+      padding: rem(15);
+    }
 
     a {
       position: relative;

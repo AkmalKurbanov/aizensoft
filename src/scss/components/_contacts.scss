@@ -1,3 +1,35 @@
+.contacts {
+  padding-top: calc(var(--headerHeight) + 30px);
+
+  .col-contacts {
+    * {
+      color: $bc;
+      font-weight: 500;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__col {
+    &:first-child {
+      flex-basis: 35%;
+    }
+
+    &:last-child {
+      flex-basis: 65%;
+
+      iframe {
+        width: 100%;
+        max-width: 100%;
+        min-height: rem(500);
+      }
+    }
+  }
+}
+
 .col-contacts {
   max-width: rem(300);
   width: 100%;
@@ -71,33 +103,90 @@
 
   &__wrap {
     display: flex;
-    display: flex;
     justify-content: space-between;
+
+    @include sm {
+      flex-direction: column;
+    }
   }
 
   &__separate {
     flex-basis: 60%;
+
+    @include md {
+      flex-basis: 70%;
+    }
+
+    @include sm {
+      flex-basis: 100%;
+    }
+
     .col-contacts {
       display: flex;
       flex-wrap: wrap;
       flex-basis: 50%;
       max-width: 100%;
       justify-content: space-between;
+
       .col-contacts__contacts-item {
         flex-basis: 45%;
+
+        @include xs {
+          flex-basis: 100%;
+        }
       }
     }
   }
-  
+
   &__btn-wrap {
     max-width: rem(435);
     display: flex;
     flex-direction: column;
     flex-basis: 40%;
     z-index: 1;
+
+    @include md {
+      flex-basis: 30%;
+    }
+
+    @include sm {
+      flex-basis: 100%;
+      max-width: 100%;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    @include xs {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .btn {
       max-width: 100%;
-      &:first-child{
+
+      @include md {
+        max-width: rem(285);
+        width: 100%;
+        min-height: rem(60);
+        padding: 0 rem(10);
+        font-size: rem(14);
+
+        &:after {
+          right: rem(15);
+          font-size: rem(15);
+        }
+
+        span {
+          font-size: rem(14);
+        }
+      }
+
+      @include sm {
+        flex-basis: 45.5%;
+      }
+
+      &:first-child {
         margin-bottom: 20px;
       }
     }

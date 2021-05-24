@@ -3,9 +3,24 @@
   position: relative;
   overflow: hidden;
 
-  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .title {
+    max-width: 65%;
+    width: 100%;
+
+    @include sm {
+      max-width: 100%;
+    }
+  }
+
   .subtitle {
     color: $wc;
+    line-height: rem(24);
+    font-weight: 400;
   }
 
   &:before {
@@ -46,6 +61,45 @@
 
       &:hover {
         border-color: $mc;
+      }
+    }
+  }
+
+  .list__item {
+    border: none;
+  }
+
+  &--services {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+
+      @include sm {
+        flex-direction: column;
+      }
+    }
+
+    .title {
+      max-width: 95%;
+    }
+
+    .gif-block-wrap {
+      flex-basis: 60%;
+
+      video {
+        width: 100%;
+      }
+    }
+
+    .list {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      flex-basis: 40%;
+      justify-content: flex-start;
+
+      .list__item {
+        flex-basis: auto;
+        margin-bottom: 0;
       }
     }
   }

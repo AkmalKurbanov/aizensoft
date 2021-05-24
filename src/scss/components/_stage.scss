@@ -1,0 +1,44 @@
+.stage {
+  p {
+    margin-bottom: rem(10);
+    line-height: rem(24);
+  }
+
+  .list {
+    &__item {
+      pointer-events: none;
+      position: relative;
+      counter-increment: section;
+      padding: 0;
+      border: none;
+
+      @include sm {
+        margin: rem(5) 0;
+      }
+
+      p {
+        line-height: rem(22);
+        margin: 0;
+      }
+
+
+    }
+
+    &__top {
+      position: relative;
+      padding-left: rem(30);
+
+      &:before {
+        position: absolute;
+        content: counter(section)".";
+        left: rem(15);
+        top: rem(2);
+      }
+    }
+  }
+
+  &__btn-wrap {
+    margin-top: rem(30);
+    // text-align: center;
+  }
+}

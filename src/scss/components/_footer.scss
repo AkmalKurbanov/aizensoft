@@ -6,10 +6,40 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: rem(30);
+
+    @include md {
+      flex-wrap: wrap;
+    }
+
+    @include xs {
+      max-width: rem(320);
+      margin: auto;
+    }
+  }
+
+  &__col {
+    @include md {
+      flex-basis: 45%;
+      margin-bottom: rem(40);
+    }
+
+    @include xs {
+      flex-basis: 100%;
+      margin-bottom: rem(20);
+
+      &:last-child {
+        margin: 0;
+      }
+    }
   }
 
   .logo {
     margin-bottom: rem(45);
+    
+    @include xs {
+      margin: auto;
+      margin-bottom: rem(45);
+    }
 
     .color-logo {
       display: block;
@@ -17,6 +47,10 @@
   }
 
   .col-contacts {
+    @include xs {
+      display: none;
+    }
+
     * {
       color: $bc;
     }
@@ -40,6 +74,10 @@
 
   &__menu {
     ul {
+      @include xs {
+        display: none;
+      }
+
       li {
         margin-bottom: rem(15);
 
@@ -63,9 +101,49 @@
     font-weight: 700;
     color: $bc;
     margin-bottom: rem(25);
+    position: relative;
+
+    @include xs {
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      font-family: icon;
+      color: $bc;
+      font-size: rem(16);
+      top: 50%;
+      right: rem(15);
+      transform: translateY(-50%) rotate(180deg);
+      transition: $tr;
+      padding-bottom: rem(3);
+      display: none;
+
+      @include xs {
+        display: block;
+      }
+    }
+
+    &--contacts {
+      display: none;
+
+      @include xs {
+        display: block;
+      }
+    }
   }
 
   &__bottom {
     padding: rem(25) 0;
+  }
+
+  .open {
+    margin-bottom: rem(15);
+
+    &:after {
+      display: none;
+    }
   }
 }

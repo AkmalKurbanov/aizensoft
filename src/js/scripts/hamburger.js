@@ -1,13 +1,16 @@
 $(document).ready(function () {
   $('.hamburger').on('click', function () {
-    $('.header').addClass('color-options');
     $('.header').removeClass('fixed');
+    $('.header.inside-page').removeClass('inside-page');
+    $('.header').addClass('color-options');
     $(this).hide();
     $('.hamburger-close').css('display', 'flex');
     $('body').addClass('disabled-scroll');
     $('.overlay').addClass('open');
     $('.curtain').addClass('open');
     $('.nav, .lang, .header__contacts ul').addClass('hidden');
+    $('.phone').hide();
+    
     $('.curtain-light').css({
       'transition': '0',
       'opacity': '1',
@@ -22,13 +25,19 @@ $(document).ready(function () {
     $('.curtain-light').addClass('open');
     $('.overlay').removeClass('open');
     $('.curtain').removeClass('open');
+    $('.phone').show();
     setTimeout(function () {
       $('body').removeClass('disabled-scroll');
     }, 1400);
     setTimeout(function () {
-
+      
+      if (scroll >= headerHeight) {
+        sticky.addClass('fixed');
+      } else sticky.removeClass('fixed');
+      
       $('.header').removeClass('color-options');
-      $('.header').addClass('fixed');
+      $('.header').addClass('inside-page');
+      $('.header.main-page').removeClass('inside-page');
       $('.nav, .lang, .header__contacts ul').removeClass('hidden');
       $('.curtain-light').removeClass('open');
       $('.curtain-light').css({

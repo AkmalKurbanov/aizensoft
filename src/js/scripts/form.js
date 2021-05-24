@@ -29,5 +29,17 @@ $(document).ready(function () {
     $(this).parent().parent().parent().find('.form-control-ckecked span').text(value);
   });
 
+jQuery(function ($) {
+  $(document).mouseup(function (e) { 
+    var div = $(".form-control-ckecked"); 
+    if (!div.is(e.target)
+      &&
+      div.has(e.target).length === 0) {
+      div.removeClass('form-control-ckecked--active');
+    }
+  });
+});
+
+
 
 });

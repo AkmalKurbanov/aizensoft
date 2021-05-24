@@ -10,16 +10,38 @@ block main
       .curtain
       .curtain-light
 
-      include includes/inside-page-video-block
+      .inside-page-video-block.inside-video
+        video(muted="" loop="" autoplay="" playsinline="")
+          source(src='assets/img/page-video.mp4' type="video/mp4")
+        .container.indent
+          .inside-video__info
+            include includes/breadcrumbs
+            +breadcrumbs(['Веб студия','Создание сайтов'], 'Дизайн сайта')
+            .top-title Стоимость от 
+              span.price 400 $
+            .inside-video__info-wrap
+              .inside-video__info-col  
+                h1 Разработка вкусного  
+                  span Дизайна сайта
+                .inside-video__info-btn-wrap
+                  a(href="#").btn.btn--filling-btn.btn--filled.btn--small
+                    span Калькулятор стоимости
+                  a(href="#form-js").btn.btn--filling-btn.btn--small.form-js
+                    span Заказать проект
+              .inside-video__info-col
+                p Оформление сайта это первое что видит посетитель, поэтому важно держать баланс между содержательностью и креативностью.
+                p Задача дизайна, зацепить человека в первые 2-3 секунды, заинтересовать и увеличить его время на сайте, изучая услуги и продукты компании.  
 
+      
 
       .example.section-indent 
         .container.indent
           .example__wrap
             .swiper-container.exaple-sites-slider
               .swiper-wrapper
-                mixin example(img, info)
+                mixin example(img, info, name)
                   .swiper-slide
+                    .example__title=name
                     .example__img
                       img(src="assets/img/"+ img +"", alt="")
                     .example__info
@@ -27,9 +49,9 @@ block main
                         span=info
                       a(href="#").btn.btn--filling-btn.btn--filled.btn--small
                         span Смотреть кейс
-                +example('example1.jpg','Корпоративный сайт-каталог.')        
-                +example('example2.jpg','Корпоративный сайт-каталог.')        
-                +example('example3.jpg','Корпоративный сайт.')        
+                +example('example1.jpg','Корпоративный сайт-каталог.', 'Корпоративный сайт-каталог бренда Fujitsu в Украине.')        
+                +example('example2.jpg','Корпоративный сайт-каталог.', 'Климатические системы TCL, ПРЕДСТАВИТЕЛЬСТВО В УКРАИНЕ.')        
+                +example('example3.jpg','Корпоративный сайт.', 'КОМПАНИЯ ПО УПРАВЛЕНИЮ АКТИВАМИ «АЛЬТА ИНВЕСТМЕНТ»')        
             .next-btn
               i.icon-arrow
             .prev-btn
@@ -90,10 +112,10 @@ block main
             +faq('Сколько вариантов дизайна Вы делаете?','Наша задача не закидать вас множеством вариантов картинок, а сделать дизайн продуманным и эффективным для выполнения целей поставленных перед сайтом. Поэтому мы стараемся провести исследования, определить лучшие решения для отзывчивого и понятного дизайна, и показать именно тот вариант, который удовлетворит требования клиента по стилю и способу подачи информации.')
       
       include includes/contacts
-      
+      include includes/calculator
       include includes/about
 
-
+      include includes/form
     include includes/footer/footer
     include includes/modal-window
 

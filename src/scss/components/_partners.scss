@@ -3,6 +3,22 @@
     display: flex;
     flex-wrap: wrap;
     padding-top: rem(80);
+
+    @include lg {
+      padding-top: rem(80);
+    }
+
+    @include md {
+      padding-top: rem(70);
+    }
+
+    @include sm {
+      padding-top: rem(60);
+    }
+
+    @include xs {
+      padding-top: rem(50);
+    }
   }
 
   &__item {
@@ -11,6 +27,24 @@
     align-items: center;
     justify-content: center;
     margin-bottom: rem(60);
+
+    @include lg {
+      margin-bottom: rem(60);
+    }
+
+    @include md {
+      margin-bottom: rem(50);
+      flex-basis: 33.33%;
+    }
+
+    @include sm {
+      margin-bottom: rem(40);
+    }
+
+    @include xs {
+      margin-bottom: rem(30);
+      flex-basis: 50%;
+    }
 
     &:hover {
       img {

@@ -1,0 +1,54 @@
+extends layout/main/main
+block title
+  | Контакты
+block main
+  .wrapper
+    .content
+      - var darkBg = false
+      include includes/header/header
+      .curtain
+      .curtain-light
+      .contacts
+        .container.indent
+          include includes/breadcrumbs
+          +breadcrumbs(['Веб студия'], 'Контакты') 
+          .contacts__wrap 
+            .contacts__col
+              h2.title.title--big.indent Контакты
+              .col-contacts
+                .col-contacts__contacts-item
+                  span Номер телефона
+                  a(href='tel:38 (095) 307 888 5') 38 (095) 307 888 5
+                .col-contacts__contacts-item
+                  span Свяжитесь с нами!
+                  a(href='mailto:info@brainlab.com.ua') info@brainlab.com.ua
+                .col-contacts__contacts-item
+                  span Наш офис
+                  p Украина, Киев улица Евгения Сверстюка, 19
+                .col-contacts__contacts-item
+                  span Мы в соц.сетях
+                  ul.col-contacts__social
+                    li
+                      a(href='#' target='_blank') facebook
+                    li
+                      a(href='#' target='_blank') instagram
+                    li
+                      a(href='#' target='_blank') linkedin
+                    li
+                      a(href='#' target='_blank') behance
+                    li
+                      a(href='#' target='_blank') vimeo
+                    li
+                      a(href='#' target='_blank') pinterest
+
+            .contacts__col
+              iframe(src='https://www.google.com/maps/d/u/0/embed?mid=1tvt1nxRNMsGBCoWXgJGgVv7M4zfrnyl_' width='640' height='480')
+      include includes/form
+     
+   
+ 
+     
+    include includes/footer/footer
+    include includes/modal-window
+
+  include includes/scripts 

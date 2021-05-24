@@ -1,5 +1,5 @@
 if darkBg
-  header.header
+  header.header.main-page
     .header__container
       .logo
         .logo__link
@@ -34,6 +34,8 @@ if darkBg
         +list(data)
         
       .header__contacts
+        .phone 
+          i.icon-phone(style="color: #fff")
         ul 
           li  
             a(href="tel:38 (095) 307 888 5") 38 (095) 307 888 5
@@ -86,6 +88,8 @@ else
         +list(data)
         
       .header__contacts
+        .phone 
+          i.icon-phone(style="color: #fff")
         ul 
           li  
             a(href="tel:38 (095) 307 888 5") 38 (095) 307 888 5

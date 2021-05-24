@@ -5,13 +5,30 @@ $(document).ready(function () {
 
   $(".menu__nav ul li").on({
     'mouseenter': function () {
-      $('.menu__nav ul li ul').addClass('show-sub-menu')
+      $(this).find('ul').addClass('show-sub-menu')
     },
     'mouseleave': function () {
-      $('.menu__nav ul li ul').removeClass('show-sub-menu')
+      $(this).find('ul').removeClass('show-sub-menu')
     }
   });
 
 
+  let headerHeight = $('.header').outerHeight();
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  document.documentElement.style.setProperty('--headerHeight', `${headerHeight}px`);
 
+  window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
 });
+
+
+
+
+
+
+
+
+

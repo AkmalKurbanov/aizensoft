@@ -1,10 +1,50 @@
 .example {
   position: relative;
+
   &__wrap {
-    padding: 0 100px;
+    padding: 0 rem(100);
     width: 100%;
     margin: auto;
     position: relative;
+
+    @include lg {
+      padding: 0 rem(70);
+    }
+
+    @include md {
+      padding: 0 rem(65);
+    }
+
+    @include sm {
+      padding: 0 rem(0);
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(40);
+    color: $bc;
+    font-weight: 500;
+    font-size: rem(24);
+
+    @include lg {
+      font-size: rem(22);
+      margin-bottom: rem(35);
+    }
+
+    @include md {
+      font-size: rem(20);
+      margin-bottom: rem(30);
+    }
+
+    @include sm {
+      font-size: rem(18);
+      margin-bottom: rem(25);
+    }
+
+    @include xs {
+      font-size: rem(16);
+      margin-bottom: rem(20);
+    }
   }
 
   &__info {
@@ -13,14 +53,57 @@
     justify-content: flex-end;
     margin-top: rem(26);
 
+    @include sm {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     p {
       font-size: rem(24);
       color: $bc;
       font-weight: 500;
+
+      @include lg {
+        font-size: rem(22);
+      }
+
+      @include md {
+        font-size: rem(20);
+      }
+
+      @include sm {
+        font-size: rem(18);
+        margin-bottom: rem(20);
+      }
+
+      @include xs {
+        font-size: rem(16);
+        margin-bottom: rem(15);
+      }
     }
 
     .btn {
       margin-left: rem(40);
+
+      @include lg {
+        max-width: rem(250);
+        width: 100%;
+        min-height: rem(55);
+        padding: 0 rem(15);
+        margin-left: rem(30);
+      }
+
+      @include sm {
+        margin-left: 0;
+      }
+
+    }
+  }
+
+  .prev-btn,
+  .next-btn {
+    @include sm {
+      display: none;
     }
   }
 }

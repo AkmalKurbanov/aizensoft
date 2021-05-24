@@ -1,4 +1,4 @@
-.calculator.section-indent
+.calculator.section-indent#calculator-js
   .container.indent 
     h2.title Калькулятор стоимости сайта AizenSoft
     .subtitle Интересует стоимость разработки сайта? Наш калькулятор дает возможность изучить стоимость каждого этапа и подобрать подходящий под бюджет вариант.
@@ -46,6 +46,7 @@
           each item in design
             .calculate__item(class=item.class)
               .calculate__title=item.title
+              
 
         .calculate__col.page-proofs
           .calculate__col-title 3. Вёрстка
@@ -79,6 +80,7 @@
           +total('Дизайн:','Не выбрано:','0','site-design')
           +total('Вёрстка:','Не выбрано:','0','site-page-proofs')
           +total('Движок CMS:','Не выбрано:','0','site-cms')
+          
         .total__result
           .total__cost Примерная стоимость: 
             p

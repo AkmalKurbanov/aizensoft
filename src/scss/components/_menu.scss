@@ -12,6 +12,7 @@
   visibility: hidden;
   pointer-events: none;
   transition: $tr;
+  padding-top: rem(120);
 
   &.open {
     opacity: 1;
@@ -21,29 +22,78 @@
 
   .container {
     height: 100%;
+    display: flex;
+    align-items: flex-end;
+
+    @include sm {
+      padding: 0 rem(15);
+    }
   }
 
   &__col-wrap {
     display: flex;
     align-items: center;
     height: 100%;
+    width: 100%;
+
+    @include xs {
+      width: 100%;
+      overflow-y: scroll;
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+    }
   }
 
   &__col {
     flex-basis: 40%;
+    margin-right: rem(20);
+
+    @include md {
+      flex-basis: 32%;
+    }
+
+    @include xs {
+      height: 100%;
+    }
+
 
     &:first-child {
-      flex-basis: 47%;
+      flex-basis: 40%;
+
+      @media screen and (max-width: 1500px) {
+        flex-basis: 35%;
+      }
+
+      @include xs {
+        display: none;
+      }
     }
   }
 
- 
+
 
   &__nav {
     ul {
       li {
         margin-bottom: rem(30);
         position: relative;
+
+        @media screen and (max-width: 1500px) {
+          margin-bottom: rem(20);
+        }
+
+        @media screen and (max-width: 1400px) {
+          margin-bottom: rem(15);
+        }
+
+        @include xs {
+          margin-bottom: rem(5);
+        }
 
         &:hover {
           ul {
@@ -69,6 +119,20 @@
           -webkit-text-stroke-width: rem(1);
           -webkit-text-stroke-color: #fff;
 
+          @include lg {
+            font-size: rem(48);
+            line-height: rem(68);
+          }
+
+          @include md {
+            font-size: rem(35);
+            line-height: normal;
+          }
+
+          @include sm {
+            font-size: rem(30);
+          }
+
           &:hover {
             color: transparent;
           }
@@ -79,10 +143,32 @@
           visibility: hidden;
           opacity: 0;
           transition: $tr;
-          top: 0;
+          top: rem(-10);
           left: 100%;
-          min-width: rem(380);
-          padding-bottom: rem(30);
+          min-width: rem(400);
+          padding: rem(30);
+          z-index: 1;
+
+          @include lg {
+            left: 88%;
+          }
+
+          @include md {
+            left: 92%;
+            top: rem(-20);
+          }
+
+
+          @include xs {
+            position: relative;
+            opacity: 1;
+            visibility: visible;
+            top: auto;
+            left: auto;
+            padding: 0;
+            padding: rem(15) 0;
+            min-width: auto;
+          }
 
           li {
             transform: translateX(-50%);
@@ -91,11 +177,30 @@
             transition-delay: 0;
             opacity: 0;
 
+            @include md {
+              margin-bottom: rem(22);
+            }
+
+            @include sm {
+              margin-bottom: rem(20);
+            }
+
+            @include xs {
+              margin-bottom: rem(15);
+              transform: translate(0);
+              opacity: 1;
+            }
+
             a {
               font-size: rem(17);
               font-weight: 400;
               line-height: 1;
               position: relative;
+
+              @include sm {
+                font-size: rem(15) !important;
+                line-height: normal !important;
+              }
 
               &:after {
                 position: absolute;
@@ -118,6 +223,43 @@
         }
       }
     }
+  }
+}
+
+.ft-lvl {
+  a {
+    font-size: rem(30) !important;
+    font-weight: 700;
+
+    @media screen and (max-width: 1400px) {
+      font-size: rem(25) !important;
+    }
+
+    @include md {
+      font-size: rem(20) !important;
+    }
+  }
+}
+
+.sd-lvl {
+  a {
+    font-size: rem(25) !important;
+    font-weight: 700;
+
+    @media screen and (max-width: 1400px) {
+      font-size: rem(20) !important;
+    }
+
+    @include md {
+      font-size: rem(18) !important;
+    }
+  }
+}
+
+.td-lvl {
+  a {
+    font-size: rem(20) !important;
+    font-weight: 700;
   }
 }
 

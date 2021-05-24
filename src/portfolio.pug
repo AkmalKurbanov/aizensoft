@@ -1,0 +1,88 @@
+extends layout/main/main
+block title
+  | main
+block main
+  .wrapper
+    .content
+
+      - var darkBg = false
+      include includes/header/header
+      .curtain
+      .curtain-light
+
+      .inside-page-video-block.inside-video
+        video(muted="" loop="" autoplay="" playsinline="")
+          source(src='assets/img/page-video.mp4' type="video/mp4")
+        .container.indent
+          .inside-video__info
+            include includes/breadcrumbs
+            +breadcrumbs(['Веб студия'], 'Проекты')
+            .inside-video__info-wrap
+              .inside-video__info-col  
+                h1 
+                  span Наши работы
+                .inside-video__info-btn-wrap
+                  a(href="#calculator-js").btn.btn--filling-btn.btn--filled.btn--small
+                    span Калькулятор стоимости
+                  a(href="#form-js").btn.btn--filling-btn.btn--small.form-js
+                    span Заказать проект
+              .inside-video__info-col
+                p Оформление сайта это первое что видит посетитель, поэтому важно держать баланс между содержательностью и креативностью.
+                p Задача дизайна, зацепить человека в первые 2-3 секунды, заинтересовать и увеличить его время на сайте, изучая услуги и продукты компании.  
+      .portfolio-filter.filter
+        .filter__wrap 
+          .filter__item.active 
+            span Интернет-магазины/Каталоги 
+          .filter__item
+            span Корпоративные/Бизнес сайты 
+          .filter__item
+            span Дизайн 
+
+      .portfolio.portfolio--filter
+        mixin portfolio(category, title, bgImg, bgColor, img)
+          a(href="#" style="background-color:"+ bgColor +"").portfolio__item
+            .portfolio__img-block
+              .portfolio__bg-img
+                img(src="assets/img/"+ bgImg +"", alt="")
+              .portfolio__main-img
+                img(src="assets/img/"+ img +"", alt="")
+            .portfolio__top-info
+              span.portfolio__category=category
+            .portfolio__bottom-info
+              .portfolio__title=title
+              .more
+                span смотреть кейс 
+                  i.icon-arrow
+        +portfolio('Интернет-магазин','Lavka babuin','portfolio-bg2.png','#347df1','portfolio1.png')
+        +portfolio('Сайт каталог','Fujitsu Ukraine','portfolio-bg4.png','#e43e3e','portfolio2.png')
+        +portfolio('Интернет-магазин','All ok','portfolio-bg8.png','#4734f2','portfolio3.png')
+        +portfolio('Корпоративный сайт','Календарь ZN.UA','portfolio-bg5.png','#a73939','portfolio4.png')
+        +portfolio('Интернет-магазин','Indonesia furniture','portfolio-bg7.png','#b3873c','portfolio5.png')
+        +portfolio('Интернет-магазин','Lavka babuin','portfolio-bg2.png','#347df1','portfolio1.png')
+        +portfolio('Сайт каталог','Fujitsu Ukraine','portfolio-bg4.png','#e43e3e','portfolio2.png')
+        +portfolio('Интернет-магазин','All ok','portfolio-bg8.png','#4734f2','portfolio3.png')
+        +portfolio('Корпоративный сайт','Календарь ZN.UA','portfolio-bg5.png','#a73939','portfolio4.png')
+
+        a(href="#" style="background-color: #f2f2f2").portfolio__item
+          .portfolio__item-bg
+            span
+            span
+            span
+          .more
+            span смотреть кейсы 
+              i.icon-arrow
+
+      
+              
+      
+
+      
+
+      
+      include includes/contacts
+      include includes/calculator
+      include includes/form
+    include includes/footer/footer
+    include includes/modal-window
+
+  include includes/scripts 

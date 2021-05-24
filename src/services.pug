@@ -1,0 +1,144 @@
+extends layout/main/main
+block title
+  | Услуги
+block main
+  .wrapper
+    .content
+
+      - var darkBg = false
+      include includes/header/header
+      .curtain
+      .curtain-light
+
+      .inside-page-video-block.inside-video
+        video(muted="" loop="" autoplay="" playsinline="")
+          source(src='assets/img/page-video.mp4' type="video/mp4")
+        .container.indent
+          .inside-video__info
+            include includes/breadcrumbs
+            +breadcrumbs(['Веб студия'], 'Создание сайтов')
+            .top-title Услуги веб студии Brainlab
+            .inside-video__info-wrap
+              .inside-video__info-col  
+                h1 
+                  span Создание сайта
+                  | лучшее решение
+                .inside-video__info-btn-wrap
+                  a(href="#").btn.btn--filling-btn.btn--filled.btn--small
+                    span Калькулятор стоимости
+                  a(href="#form-js").btn.btn--filling-btn.btn--small.form-js
+                    span Заказать проект
+              .inside-video__info-col
+                p Наша цель - создание сайта, который позволит ему развивать свой бизнес, используя современные технологии и опыт профессионалов в сфере web-разработки.
+                p Наши инструменты администрирования предлагают простоту и автоматизацию, необходимые для того, чтобы вы могли сосредоточиться только на том, что важно: привлечение новых клиентов и увеличение продаж. Закажите разработку сайта под ключ прямо сейчас.
+
+      .dark-bg.section-indent
+        .container.indent
+          h2.title.title--light.title--big.indent Наш подход
+          .list.list--dark
+            mixin list(title, desc)
+              .list__item.fadeInUp
+                .list__top
+                  h3=title
+                  p=desc
+            +list('Исследуем рынок','Запуск лендинга обеспечит получение заявок/продаж максимально быстро, по сравнению с запуском интернет-магазина или бизнес сайта.')    
+            +list('Фокус на дизайн','Дизайн формирует у посетителя правильное настроение, транслирует философию бренда, создает первое впечатление.')    
+            +list('Работа на результат','Качественный и валидный код. Удобство администрирования. Поддержка и развитие проекта')    
+      
+      .services.section-indent
+        .container.indent
+          h2.title.indent Разработка сайтов любой сложности
+          .list
+            mixin list(title, desc, price)
+              .list__item.fadeInUp
+                span.circle
+                .list__top
+                  h3=title
+                  p=desc
+                .list__bottom
+                  .more
+                    a(href="#") Узнать больше
+                      i.icon-arrow
+                  .list__price=price
+            +list('Интернет магазин','Делаем работу интернет-магазина простой и быстрой благодаря специальным инструментам.','от 2500$')    
+            +list('Корпоративные сайты','Разрабатываем корпоративные проекты различной сложности и масштаба.','от 2100$')    
+            +list('Landing page', 'Создаем продающие лендинги с запоминающимся дизайном и максимальной конверсией.','от 1350$')    
+            +list('Бизнес сайт','Помогаем бизнесу создать правильное позиционирование для расширения партнерской и клиентской сети.','от 2100$')    
+            +list('Дизайн сайта','Используем простые и смелые решения, которые запомнятся посетителям и выделят вас среди конкурентов.','от 400$')    
+            +list('Сайт визитка','Уделяем особое внимание созданию эмоции и яркому впечатлению о вашем бренде.','от 1650$')    
+            +list('Доработка сайта','Внедряем новые "хотелки", развиваем функционал, оптимизируем работу модулей и плагинов.','25$/час')    
+            +list('Редизайн сайта','Помогаем клиентам быть впереди конкурентов. Обновляем дизайн, добавляем новые "фишки".','от 400$')    
+            +list('SEO-продвижение сайта','Оптимизируем сайт под требования поисковых систем и уportfolio1.pngвеличиваем обьемы бесплатного органического трафика.','от 450$')    
+            +list('Контекстная реклама','Привлекаем на сайт целевой трафик. Увеличиваем количество лидов и обьемы продаж.','от 450$/месяц')    
+            +list('Настройка аналитики','Помогаем измерять эффективность продвижения сайта по разным каналам и оптимизировать их.','от 100$')    
+          .list__btn-wrap
+            a(href="#form-js").btn.btn--filling-btn.btn--filled.form-js
+              span Отправить запрос
+            a(href="#calculator-js").btn.btn--filling-btn
+              span Калькулятор стоимости      
+      
+      .dark-bg.dark-bg--services.section-indent
+        .container.indent
+          .gif-block-wrap
+            h2.title.title--light.title--big.indent Как формируется стоимость <br> разработки сайта
+            .gif-block 
+              video(muted="" loop="" autoplay="" playsinline="")
+                source(src='assets/img/services.mp4' type="video/mp4")
+          .list.list--dark
+            mixin list(title, desc)
+              .list__item.fadeInUp
+                .list__top
+                  h3=title
+                  p=desc
+            +list('Анализ и Проектирование','На основе анализа рынка, разрабатываем прототип проекта, готовим техническую документацию.')
+            +list('Разработка дизайна','Создаем уникальный стиль бренда, разрабатываем адаптивный дизайн всех страниц сайта.')
+            +list('Верстка и Программирование','Пишем качественный валидный код, используем готовые решения разработанные нашей командой, создаем новые модули под разные задачи.')
+            +list('Тестирование, Контент, Поддержка.','Делаем тестирование, помогаем с формированием и загрузкой контента, сопровождаем проект, консультируем по управлению сайтом.')
+     
+      
+      include includes/portfolio
+      
+      include includes/questions
+      
+      include includes/why
+      
+
+      .table.section-indent 
+        .container.indent
+          h2.title.title--big.indent Цены на создание сайта
+          .table__wrap
+            table 
+              thead
+                tr 
+                  th Тарифы
+                  th Стоимость
+                  th Сроки создания
+              tbody 
+                tr  
+                  td Сайты визитки
+                  td от 13000 грн. 
+                  td от 25 рабочих дней
+                tr  
+                  td Сайты услуг
+                  td от 15000 грн.
+                  td от 22 рабочих дней
+                tr  
+                  td Интернет магазины
+                  td от 18000 грн.
+                  td от 28 рабочих дней
+                tr  
+                  td Информационные ресурсы, блоги
+                  td от 20000 грн.
+                  td от 28 рабочих дней  
+     
+      
+      
+      include includes/contacts
+      include includes/calculator
+      include includes/about
+
+      include includes/form
+    include includes/footer/footer
+    include includes/modal-window
+
+  include includes/scripts 

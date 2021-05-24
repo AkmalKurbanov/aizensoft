@@ -1,0 +1,108 @@
+.modules {
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+
+    @include sm {
+      flex-direction: column;
+      padding-bottom: rem(100);
+    }
+  }
+
+  &__col {
+    flex-basis: 45%;
+
+    @include lg {
+      flex-basis: 49%;
+    }
+
+    &:first-child {
+      .modules__btn-wrap {
+        @include sm {
+          display: none;
+        }
+      }
+    }
+
+    &:last-child {
+      max-height: rem(435);
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        background-color: transparent;
+      }
+
+      .modules__btn-wrap {
+        display: none;
+        position: absolute;
+        width: 90%;
+        top: 94%;
+        margin-top: rem(10);
+
+        @include sm {
+          display: block;
+          max-width: 100%;
+        }
+
+        @include xs {
+          width: 91%;
+        }
+
+        .btn {
+          @include xs {
+            max-width: rem(320);
+          }
+        }
+
+      }
+    }
+  }
+
+  p {
+    color: $tc;
+    margin-bottom: rem(15);
+    line-height: rem(24);
+  }
+
+  &__btn-wrap {
+    margin-top: rem(50);
+  }
+
+  &__list {
+    padding-top: rem(15);
+    padding-right: rem(30);
+
+    @include lg {
+      padding-right: rem(25);
+    }
+
+    @include md {
+      padding-right: rem(20);
+    }
+
+    @include sm {
+      padding-right: rem(15);
+    }
+
+    @include xs {
+      padding-right: rem(10);
+    }
+  }
+
+  &__item {
+    padding: rem(15);
+    font-size: rem(18);
+    font-weight: 500;
+    border-bottom: rem(1) solid #eaeaea;
+    transition: $tr;
+
+    @include md {
+      font-size: rem(17);
+      padding: rem(15) rem(10);
+    }
+
+    &:hover {
+      background-color: #eaeaea;
+    }
+  }
+}

@@ -1,0 +1,164 @@
+.stage-dev {
+  &__wrap {
+    display: flex;
+
+    // margin-top: rem(-100);
+    @include sm {
+      flex-direction: column;
+      margin-top: rem(40);
+    }
+  }
+
+  &__steps {
+    counter-increment: section;
+    width: 20%;
+
+    @include sm {
+      width: 100%;
+      display: flex;
+      align-items: stretch;
+      min-height: rem(150);
+      margin: 0 !important;
+    }
+
+    &:nth-child(1) {
+      margin-top: rem(100);
+
+      @include lg {
+        margin-top: rem(75);
+      }
+    }
+
+    &:nth-child(2) {
+      margin-top: rem(55);
+
+      .stage-dev__img {
+        top: rem(15);
+      }
+    }
+
+    &:nth-child(3) {
+      margin-top: rem(65);
+
+      @include lg {
+        margin-top: rem(60);
+      }
+    }
+
+    &:nth-child(4) {
+      margin-top: rem(30);
+
+      .stage-dev__img {
+        bottom: rem(10);
+      }
+    }
+
+    &:nth-child(5) {
+      .stage-dev__img {
+        top: rem(-7);
+      }
+    }
+
+    &:last-child {
+      @include sm {
+        min-height: auto;
+
+        .stage-dev__top {
+          background: none;
+        }
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+
+    @include sm {
+      align-items: flex-start;
+      justify-content: center;
+      background-image: url('/assets/img/step-mobile.png');
+      background-repeat: no-repeat;
+      background-position: bottom;
+    }
+  }
+
+  &__bottom {
+    margin-top: rem(20);
+    padding: 0 rem(10);
+
+    @include sm {
+      margin-top: 0;
+      padding: 0 0 0 rem(35);
+    }
+  }
+
+  &__title {
+    font-size: rem(19);
+    color: $bc;
+    font-weight: 500;
+    margin-bottom: rem(10);
+
+    @include lg {
+      font-size: rem(18);
+      margin-bottom: rem(8);
+    }
+  }
+
+  &__elem {
+    position: relative;
+    width: rem(26);
+    height: rem(26);
+    border-radius: 50%;
+    border: rem(4) solid $mc;
+    position: relative;
+    margin-right: rem(10);
+
+    @include sm {
+      margin-right: 0;
+    }
+
+    &:before {
+      position: absolute;
+      content: "0"counter(section);
+      left: 110%;
+      bottom: 100%;
+      color: $mc;
+      font-weight: 700;
+
+      @include sm {
+        bottom: auto;
+        top: rem(-5);
+        margin-left: rem(10);
+      }
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: rem(5);
+      height: rem(5);
+      background-color: $mc;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__img {
+    max-width: 80%;
+    width: 100%;
+    position: absolute;
+    left: rem(35);
+
+    @include lg {
+      max-width: 75%;
+    }
+  }
+
+  &__btn-wrap {
+    margin-top: rem(50);
+  }
+}
