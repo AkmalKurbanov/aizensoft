@@ -383,9 +383,11 @@
 
 .nav,
 .lang,
-.header__contacts ul {
+.header__contacts ul,
+.phone {
   &.hidden {
     visibility: hidden;
     opacity: 0;
+    pointer-events: none;
   }
 }

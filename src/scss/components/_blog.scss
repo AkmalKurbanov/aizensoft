@@ -1,0 +1,299 @@
+.blog {
+  margin-top: var(--headerHeight);
+  padding: 0;
+
+  &__wrap {
+    display: flex;
+  }
+
+  &__col {
+    display: block;
+
+    &:first-child {
+      max-width: 40%;
+
+      @include md {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      max-width: 60%;
+      padding: 0 rem(30) rem(30);
+
+      @include md {
+        max-width: 100%;
+      }
+
+      @include sm {
+        padding: 0 rem(15) rem(15);
+      }
+    }
+  }
+
+
+
+  &__last-article {
+    position: sticky;
+    top: calc(var(--headerHeight));
+    height: calc(100vh - var(--headerHeight));
+  }
+
+  &__list-article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__item {
+    flex-basis: 49%;
+    margin-bottom: rem(30);
+
+    @include xs {
+      flex-basis: 100%;
+    }
+  }
+
+  &__preview {
+    margin-bottom: rem(10);
+  }
+
+  &__date {
+    font-size: rem(13);
+    font-weight: 700;
+    color: $mc;
+    margin-bottom: rem(10);
+  }
+
+  &__title {
+    margin-bottom: rem(20);
+
+    @include lg {
+      margin-bottom: rem(15);
+    }
+
+
+
+    a {
+      color: $bc;
+      font-size: rem(24);
+      font-weight: 700;
+
+      @include lg {
+        font-size: rem(18);
+      }
+
+      &:hover {
+        color: $mc;
+      }
+    }
+  }
+
+  &__desc {
+    margin-bottom: rem(20);
+
+    @include lg {
+      font-size: rem(15);
+      margin-bottom: rem(15);
+    }
+  }
+
+  .more {
+    a {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 0;
+        left: 0;
+        bottom: 0;
+        height: rem(1);
+        background-color: $mc;
+        transition: $tr;
+      }
+
+      &:hover {
+        color: $mc;
+
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .swiper-container,
+  .swiper-wrapper,
+  .swiper-slide {
+    height: 100%;
+  }
+
+  .last-article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-end;
+    height: 100%;
+    padding-left: 10%;
+    padding-bottom: rem(100);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    * {
+      position: relative;
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba($bc, .6);
+    }
+
+    &__wrap {
+      width: 70%;
+    }
+
+    &__tag {
+      background-color: $wc;
+      color: $bc;
+      padding: rem(5) rem(10);
+      font-size: rem(13);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: rem(30);
+    }
+
+    &__title {
+      @include lg {
+        font-size: rem(20);
+      }
+
+    }
+
+    &__desc {
+      @include lg {
+        font-size: rem(15);
+      }
+    }
+
+    &__title,
+    &__desc {
+      color: $wc;
+      margin-bottom: rem(20);
+
+      @include lg {
+        margin-bottom: rem(15);
+      }
+    }
+  }
+
+  .btn {
+    &:hover {
+      border-color: $wc;
+
+      span,
+      &:after {
+        color: $wc !important;
+      }
+    }
+  }
+
+  .swiper-slide {
+    .last-article__wrap {
+      transition: 2s;
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    &.swiper-slide-active {
+      .last-article__wrap {
+        transition-delay: .7s;
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .swiper-pagination {
+    bottom: rem(40);
+    left: 50%;
+    transform: translateX(-50%);
+
+    span {
+      width: rem(30);
+      height: rem(3);
+      border-radius: 0;
+      margin-right: rem(5);
+      background-color: #fff;
+
+      &.swiper-pagination-bullet-active {
+        background-color: $wc;
+      }
+    }
+  }
+
+  .search {
+    margin: rem(30) 0;
+    justify-content: space-between;
+    display: flex;
+
+    @include xs {
+      flex-direction: column;
+    }
+
+    .title {
+      flex-basis: 60%;
+      line-height: normal;
+
+      @media screen and (max-width: 1400px) {
+        font-size: rem(30);
+      }
+
+      @include lg {
+        font-size: rem(24);
+      }
+
+      @include xs {
+        margin-bottom: rem(30);
+      }
+    }
+
+
+    &__form {
+      flex-basis: 40%;
+
+      .form-control {
+        height: rem(40);
+        width: 100%;
+        margin: 0;
+        position: relative;
+        padding-right: rem(35);
+
+        input {
+          font-size: rem(16);
+        }
+
+        button {
+          position: absolute;
+          top: rem(-13);
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          cursor: pointer;
+          width: rem(30);
+          height: rem(30);
+          z-index: 9999;
+        }
+      }
+    }
+  }
+}

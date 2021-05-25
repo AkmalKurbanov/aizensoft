@@ -1005,3 +1005,98 @@ button {
 }
 
 // fiter end
+
+
+
+// pagination start
+.pagination,
+.pagination__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pagination {
+  justify-content: center;
+  margin-top: rem(30);
+
+  @include xs {
+    justify-content: center;
+  }
+
+  &__prev {
+    transform: rotate(-90deg);
+
+    &.disabled {
+      pointer-events: none;
+      color: $bc;
+    }
+  }
+
+  &__next {
+    transform: rotate(90deg);
+    color: $mc;
+  }
+
+  &__prev,
+  &__next {
+    width: rem(30px);
+    height: rem(30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: rem(30);
+    padding-bottom: rem(5);
+
+    &:hover {
+      color: $wc;
+      background-color: $mc;
+    }
+  }
+
+  &__item {
+    margin-right: rem(10px);
+
+    @include xs {
+      margin-right: rem(5px);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      height: rem(30px);
+      width: rem(30px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: rem(1px) solid $mc;
+      line-height: normal;
+      box-sizing: border-box;
+      color: $bc;
+      font-weight: 700;
+
+      @include xs {
+        font-size: rem(12px);
+        height: rem(25px);
+        width: rem(25px);
+      }
+
+      &:hover {
+        color: $wc;
+        background-color: $mc;
+      }
+    }
+
+    &.is-active {
+      a {
+        color: $wc;
+        pointer-events: none;
+        background-color: $mc;
+      }
+    }
+  }
+}
+
+// pagination end

@@ -8,8 +8,8 @@ $(document).ready(function () {
     $('body').addClass('disabled-scroll');
     $('.overlay').addClass('open');
     $('.curtain').addClass('open');
-    $('.nav, .lang, .header__contacts ul').addClass('hidden');
-    $('.phone').hide();
+    $('.nav, .lang, .header__contacts ul, .phone').addClass('hidden');
+    // $('.phone').hide();
     
     $('.curtain-light').css({
       'transition': '0',
@@ -25,7 +25,7 @@ $(document).ready(function () {
     $('.curtain-light').addClass('open');
     $('.overlay').removeClass('open');
     $('.curtain').removeClass('open');
-    $('.phone').show();
+    // $('.phone').show();
     setTimeout(function () {
       $('body').removeClass('disabled-scroll');
     }, 1400);
@@ -38,7 +38,7 @@ $(document).ready(function () {
       $('.header').removeClass('color-options');
       $('.header').addClass('inside-page');
       $('.header.main-page').removeClass('inside-page');
-      $('.nav, .lang, .header__contacts ul').removeClass('hidden');
+      $('.nav, .lang, .header__contacts ul, .phone').removeClass('hidden');
       $('.curtain-light').removeClass('open');
       $('.curtain-light').css({
         'opacity': '0',

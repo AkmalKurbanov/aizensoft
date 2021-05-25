@@ -1,0 +1,94 @@
+extends layout/main/main
+block title
+  | main
+block main
+  .wrapper
+    .content
+      - var darkBg = false
+      include includes/header/header
+      .curtain
+      .curtain-light
+
+      .inside-page-video-block.inside-video
+        video(muted="" loop="" autoplay="" playsinline="")
+          source(src='assets/img/page-video.mp4' type="video/mp4")
+        .container.indent
+          .inside-video__info
+            include includes/breadcrumbs
+            +breadcrumbs(['Веб студия'], 'О студии')
+            .top-title О нас и нашей работе 
+            .inside-video__info-wrap
+              .inside-video__info-col  
+                h1 Создаем  
+                  span работающие цифровые продукты
+                  |для вашего бизнеса
+              .inside-video__info-col
+                p Наша история началась когда два веб-разработчика решили пойти своим путем и создать свою креативную веб-студию.
+                p Имея опыт необходимый для полного цикла создания веб проектов мы шаг за шагом двигались вверх попутно приобретая бесценный опыт и формируя сильную команду специалистов  
+      .about.dark-bg.section-indent
+        .container.indent
+          h2.title.title--light.title--big.indent Студия Aizen Soft
+          .about__img-block
+            .about__img-wrap
+              img(src="assets/img/about.png", alt="")
+            .about__rotate-img 
+              img(src="assets/img/about-rotate.png", alt="")
+
+          .about__desc-text 
+            h2 title
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, esse, excepturi ut nemo a deleniti numquam provident dolorem aut, natus minima unde officiis adipisci ratione illo voluptas atque veniam vero?
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, esse, excepturi ut nemo a deleniti numquam provident dolorem aut, natus minima unde officiis adipisci ratione illo voluptas atque veniam vero?
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, esse, excepturi ut nemo a deleniti numquam provident dolorem aut, natus minima unde officiis adipisci ratione illo voluptas atque veniam vero?
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, esse, excepturi ut nemo a deleniti numquam provident dolorem aut, natus minima unde officiis adipisci ratione illo voluptas atque veniam vero?
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, esse, excepturi ut nemo a deleniti numquam provident dolorem aut, natus minima unde officiis adipisci ratione illo voluptas atque veniam vero?
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, esse, excepturi ut nemo a deleniti numquam provident dolorem aut, natus minima unde officiis adipisci ratione illo voluptas atque veniam vero?
+            h3 title
+
+            ul
+              li Lorem, ipsum dolor.
+              li Enim, maiores magnam.
+              li Officiis, eum dolor!
+              li Doloremque, illo eveniet?
+              li Ipsam, reprehenderit molestiae?
+
+            h4 title 
+
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quidem?  
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quidem?  
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quidem?  
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quidem?  
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quidem?  
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quidem?  
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quidem?  
+      include includes/portfolio
+      include includes/questions
+      include includes/why
+      include includes/partners
+      include includes/contacts
+      include includes/calculator
+      include includes/about
+      include includes/form
+     
+   
+ 
+     
+    include includes/footer/footer
+    //- include includes/modal-window
+
+  include includes/scripts 
+  script.
+    $(document).ready(function () {
+    var elem = document.querySelector('.about__rotate-img');
+    window.addEventListener('scroll', function () {
+    var value = window.scrollY * 0.25;
+    elem.style.transform = `rotate(${value}deg)`;
+    });
+    $(window).scroll(function () {
+    var scroll = $(window).scrollTop();
+    if ((scroll > 0) && (scroll < 400)) {
+    $('.about__img-wrap img').addClass('scale-img');
+    } else if (scroll > 400) {
+    $('.about__img-wrap img').removeClass('scale-img');
+    }
+    })
+    });

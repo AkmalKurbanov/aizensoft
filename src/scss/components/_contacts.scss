@@ -2,15 +2,69 @@
   padding-top: calc(var(--headerHeight) + 30px);
 
   .col-contacts {
-    * {
-      color: $bc;
-      font-weight: 500;
+    @include sm {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 100%;
+      justify-content: space-between;
+    }
+
+    @include xs {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    .col-contacts__contacts-item {
+      @include sm {
+        flex-basis: 48%;
+      }
+
+      @include xs {
+        flex-basis: 100%;
+      }
+
+      span {
+        font-weight: 500;
+      }
+
+      a,
+      p {
+        color: $bc;
+      }
+
+      a {
+        position: relative;
+
+        &:after {
+          position: absolute;
+          content: '';
+          left: 0;
+          bottom: 0;
+          height: rem(1);
+          width: 0;
+          background-color: $bc;
+          transition: $tr;
+        }
+
+        &:hover {
+          &:after {
+            width: 100%;
+          }
+        }
+      }
+
+
     }
   }
 
   &__wrap {
     display: flex;
     flex-direction: row;
+
+    @include sm {
+      flex-direction: column;
+    }
   }
 
   &__col {
@@ -26,6 +80,15 @@
         max-width: 100%;
         min-height: rem(500);
       }
+    }
+  }
+
+  &__map {
+    overflow: hidden;
+
+    iframe {
+      margin-top: rem(-50);
+      margin-left: rem(-2);
     }
   }
 }

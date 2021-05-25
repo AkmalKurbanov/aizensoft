@@ -1,0 +1,97 @@
+extends layout/main/main
+block title
+  | main
+block main
+  .wrapper
+    .content
+      - var darkBg = false
+      include includes/header/header
+      .curtain
+      .curtain-light
+
+      .blog.section-indent
+        .blog__wrap
+          .blog__col
+            .blog__last-article 
+              .swiper-container.blog-article-js
+                .swiper-wrapper
+                  mixin popularArticle(title, desc, img)
+                    .swiper-slide
+                      .last-article(style="background-image: url('assets/img/"+ img +"')")
+                        .last-article__wrap
+                          .last-article__tag Популярная статья
+                          .last-article__title.title=title
+                          .last-article__desc=desc
+                          a(href="#").btn.btn--filling-btn.btn--filled.btn--small
+                            span Прочесть статью  
+                  +popularArticle('Как увеличить трафик на сайте','Разработку и продвижение сайта лучше доверить опытному исполнителю, предоставляющему комплексные услуги на рынке e-commerce.','blog1.jpg')
+                  +popularArticle('Сколько стоит сделать сайт в 2021','Разработку и продвижение сайта лучше доверить опытному исполнителю, предоставляющему комплексные услуги на рынке e-commerce.','blog2.jpg')
+                  +popularArticle('Как создать доску объявлений','Разработку и продвижение сайта лучше доверить опытному исполнителю, предоставляющему комплексные услуги на рынке e-commerce.','blog3.png')
+              .swiper-pagination     
+
+          .blog__col
+            .blog__search.search
+              h2.title Последние публикации
+              .search__form 
+                form(action="")
+                  .form-control
+                    input#name(type='text' name='Имя' autocomplete='off')
+                    label(for='name') Поиск по блогу
+                    button(type="submit")
+                      i.icon-search
+   
+            .blog__list-article
+              each item in blog
+                .blog__item 
+                  .blog__preview
+                    a(href="#") 
+                      img(src=item.img, alt="")
+                  .blog__date дата публикации 
+                    span=item.date
+                  .blog__title
+                    a(href="#")=item.title 
+                  .blog__desc=item.desc
+                  .more 
+                    a(href="#") Читать далее   
+            .pagination
+              a.pagination__prev.disabled(href='#')
+                i.icon-angle-up
+              ul.pagination__list
+                li.pagination__item.is-active
+                  a.pagination__number(href='#') 1
+                li.pagination__item
+                  a.pagination__number(href='#') 2
+                li.pagination__item
+                  a.pagination__number(href='#') 3
+                li.pagination__item
+                  a.pagination__number(href='#') 4
+                li.pagination__item
+                  a.pagination__number(href='#') 5
+                li.pagination__item
+                  a.pagination__number.is-collapsed(href='#' title='Show more') ...
+                li.pagination__item
+                  a.pagination__number(href='#') 13
+                li.pagination__item
+                  a.pagination__number(href='#') 14
+              a.pagination__next(href='#')
+                i.icon-angle-up
+
+
+
+      
+      include includes/portfolio
+      include includes/questions
+      include includes/why
+      include includes/partners
+      include includes/contacts
+      include includes/calculator
+      include includes/about
+      include includes/form
+     
+   
+ 
+     
+    include includes/footer/footer
+    //- include includes/modal-window
+
+  include includes/scripts 
