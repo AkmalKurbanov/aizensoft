@@ -36,6 +36,19 @@
     height: 100%;
     width: 100%;
 
+    @include md {
+      @include orientation(landscape) {
+        width: 100%;
+        overflow-y: scroll;
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+
     @include xs {
       width: 100%;
       overflow-y: scroll;
@@ -55,6 +68,10 @@
 
     @include md {
       flex-basis: 32%;
+
+      @include orientation(landscape) {
+        height: 100%;
+      }
     }
 
     @include xs {

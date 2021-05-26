@@ -15,6 +15,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  padding: 0 rem(15);
 
   &.open {
     opacity: 1;
@@ -32,6 +33,14 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+
+    @include lg {
+      max-width: rem(450);
+    }
+
+    @include xs {
+      max-width: 95%;
+    }
 
     &.show {
       opacity: 1;
@@ -61,6 +70,14 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    
+    @include lg {
+      top: rem(20);
+    }
+    @include xs {
+      right: rem(10);
+      top: rem(12);
+    }
 
     span {
       transition: $tr;
@@ -80,12 +97,34 @@
   &__body {
     padding: rem(15) rem(70) rem(40);
     text-align: center;
+
+    @include lg {
+      padding: rem(40);
+    }
+
+    @include xs {
+      padding: rem(40) rem(20);
+    }
   }
 
   &__title {
     font-size: rem(28);
     line-height: rem(65);
     font-weight: 700;
+
+    @include lg {
+      font-size: rem(26);
+      line-height: rem(40);
+    }
+
+    @include sm {
+      font-size: rem(24);
+      line-height: rem(36);
+    }
+    @include xs {
+      font-size: rem(20);
+      line-height: normal;
+    }
   }
 
   .form-control {

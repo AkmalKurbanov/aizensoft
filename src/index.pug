@@ -18,10 +18,9 @@ block main
             span Веб студия Aizen Soft
           .video-bg__links 
             a(href="#").btn.btn--ft Портфолио 
-            a(href="#").btn.btn--ft Цены 
-            a(href="#").btn.btn--ft Видео
+            a(href="#services").btn.btn--ft Цены
 
-      .services.section-indent
+      .services.section-indent#services
         .container.indent
           h2.title.indent Услуги
           .list
@@ -70,6 +69,6 @@ block main
  
      
     include includes/footer/footer
-    //- include includes/modal-window
+    include includes/modal-window
 
   include includes/scripts 

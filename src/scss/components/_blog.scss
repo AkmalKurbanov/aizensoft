@@ -11,6 +11,7 @@
 
     &:first-child {
       max-width: 40%;
+      position: relative;
 
       @include md {
         display: none;
@@ -297,3 +298,4 @@
     }
   }
 }
+

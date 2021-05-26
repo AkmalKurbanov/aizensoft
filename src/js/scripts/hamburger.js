@@ -9,7 +9,6 @@ $(document).ready(function () {
     $('.overlay').addClass('open');
     $('.curtain').addClass('open');
     $('.nav, .lang, .header__contacts ul, .phone').addClass('hidden');
-    // $('.phone').hide();
     
     $('.curtain-light').css({
       'transition': '0',
@@ -25,7 +24,6 @@ $(document).ready(function () {
     $('.curtain-light').addClass('open');
     $('.overlay').removeClass('open');
     $('.curtain').removeClass('open');
-    // $('.phone').show();
     setTimeout(function () {
       $('body').removeClass('disabled-scroll');
     }, 1400);

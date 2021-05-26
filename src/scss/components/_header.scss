@@ -5,8 +5,18 @@
   transition: $tr;
   width: 100%;
 
+  @include md {
+    @include orientation(landscape) {
+      padding: rem(10) 0;
+    }
+  }
+
   @include xs {
     padding: rem(20) 0;
+
+    @include orientation(landscape) {
+      padding: rem(10) 0;
+    }
   }
 
   &__container {
@@ -128,6 +138,10 @@
 
     @include md {
       max-width: rem(230);
+
+      @include orientation(landscape) {
+        justify-content: flex-end;
+      }
     }
 
     @include xs {
@@ -151,6 +165,12 @@
     }
 
     ul {
+      @include md {
+        @include orientation(landscape) {
+          display: none;
+        }
+      }
+
       @include xs {
         display: none;
         position: absolute;
@@ -267,6 +287,12 @@
   &.fixed {
     background-color: $wc;
     box-shadow: 0 3px 6px rgba(0, 0, 0, .1);
+
+    @include md {
+      @include orientation(landscape) {
+        background-color: rgba($wc, .7);
+      }
+    }
 
     .color-logo {
       display: block;

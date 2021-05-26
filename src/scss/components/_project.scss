@@ -1,0 +1,229 @@
+.project {
+  &__banner {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: var(--headerHeight);
+
+
+    @include sm {
+      padding-bottom: var(--headerHeight);
+
+      @include orientation(landscape) {
+        padding: 0;
+      }
+    }
+  }
+
+
+  &__logo {
+    position: relative;
+    z-index: 2;
+    margin-bottom: rem(150);
+
+    @include md {
+      @include orientation(landscape) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__img-wrap {
+    max-width: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    @include md {
+      @include orientation(landscape) {
+        display: none;
+      }
+    }
+
+    @include xs {
+      max-width: 70%;
+    }
+  }
+
+  &__circle,
+  &__circles,
+  &__img {
+    position: absolute;
+  }
+
+  &__circle {
+    max-width: 70%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__circles {
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+  }
+
+  &__img {
+    position: absolute;
+    max-width: 70%;
+  }
+
+  .container {
+    max-width: rem(1100);
+  }
+
+  &__info-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+    flex-basis: 50%;
+  }
+
+  &__info-main {
+    .project__col {
+      &:last-child {
+        padding-left: rem(200);
+
+        @include lg {
+          padding-left: rem(150);
+        }
+
+        @include md {
+          padding-left: rem(100);
+        }
+
+        @include sm {
+          padding-left: rem(20);
+        }
+      }
+    }
+  }
+
+  &__info-item {
+    margin-bottom: rem(20);
+  }
+
+  p {
+    color: $bc;
+    font-size: rem(18);
+    line-height: rem(34);
+
+    @include sm {
+      font-size: rem(16);
+      line-height: rem(30);
+    }
+  }
+
+  .more {
+    margin-top: rem(40);
+  }
+
+  &__moile-version {
+    .container {
+      display: flex;
+
+      @include xs {
+        flex-direction: column;
+      }
+    }
+
+    .project__col {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+
+      &:last-child {
+        padding-left: 0 !important;
+        margin-top: rem(80);
+        position: relative;
+
+        @include xs {
+          margin-top: rem(40);
+        }
+
+        img {
+          position: relative;
+          z-index: 1;
+        }
+
+        .project__moile-back {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: rem(515);
+          height: rem(515);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+
+          @include lg {
+            width: rem(500);
+            height: rem(500);
+          }
+
+          @include md {
+            width: rem(400);
+            height: rem(400);
+          }
+
+          @include sm {
+            display: none;
+          }
+        }
+      }
+
+      img {
+        width: auto;
+      }
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: rem(20);
+    color: $bc;
+  }
+
+  &__text {
+    &:nth-child(2n) {
+      background-color: #f3f3f3;
+    }
+
+    img {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__result {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: '';
+      height: 30%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    }
+  }
+
+  &__btn-wrap {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+}

@@ -9,8 +9,10 @@ html(lang="en")
     link(rel="stylesheet" href="assets/styles.min.css")
     link(link rel="icon" href="favicon.ico")  
     script(src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full")
-body
+body#body
   include ../../includes/menu
   .overlay
+    a(href="#body").scroll-top   
+      i.icon-angle-up
   
   block main

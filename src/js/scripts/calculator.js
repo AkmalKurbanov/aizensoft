@@ -122,4 +122,16 @@
    });
 
 
+
+   $(".calculate__info").on({
+     'mouseenter': function () {
+       $(this).parent().css('z-index', '999');
+     },
+     'mouseleave': function () {
+       $(this).parent().css('z-index', '2');
+     }
+   });
+
+
+
  });

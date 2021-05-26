@@ -1,0 +1,111 @@
+extends layout/main/main
+block title
+  | main
+block main
+  .wrapper
+    .content
+      - var darkBg = true
+      include includes/header/header
+      .curtain
+      .curtain-light
+
+      .project
+        .project__banner(style="background-color: #347DF1;")
+          .project__logo 
+            img(src="assets/img/project-logo.png", alt="")
+          .project__img-wrap
+            .project__circle(data-depth='0.1')
+              img(src="assets/img/project4.png", alt="")
+            .project__circles(data-depth='0.6')
+              img(src="assets/img/project4.4.png", alt="")
+            .project__img
+              img(src="assets/img/portfolio3.png", alt="")
+        .project__info.section-indent      
+          .container.indent
+            include includes/breadcrumbs
+            +breadcrumbs(['Веб студия','Проекты'], 'Lavka babuin')
+            .project__info-main
+              h2.title.title--big.indent Книжный интернет-магазин  «Лавка Бабуин».      
+              .project__info-wrap 
+                .project__col
+                  .project__info-desc 
+                    p Огромная площадка по продаже книг разнообразного жанра и тематики. Проект существует с 2009 года, в 2018 году решили перезапустить интернет-магазин на более современной платформе с обновленным и легким дизайном.  
+                  .more
+                    a(href='#')
+                      | Перейти на сайт
+                      i.icon-arrow
+
+                .project__col
+                  .project__info-item 
+                    .project__info-title
+                      p Клиент
+                    .project__info-info
+                      p 
+                        strong Лавка Бабуин
+                  .project__info-item 
+                    .project__info-title
+                      p Страна
+                    .project__info-info
+                      p 
+                        strong Украина
+                  .project__info-item 
+                    .project__info-title 
+                      p Над проектом работали
+                    .project__info-info 
+                      p
+                        strong UX/UI designer
+                    .project__info-info
+                      p
+                        strong Front-end development
+                    .project__info-info
+                      p
+                        strong Back-end development
+              .project__desktop-version.section-indent
+                img(src="assets/img/desktop-version.jpg", alt="")
+          .project__moile-version.light-bg.section-indent
+            .container
+              .project__col   
+                img(src="assets/img/lavka-1.png", alt="")
+              .project__col
+                img(src="assets/img/lavka-2.png", alt="")
+                .project__moile-back(style="background-color: #347df1;")
+
+          .project__text.section-indent
+            .container 
+              h2 Дизайн концепция
+              p В основу дизайна и структуры сайта была заложена простота навигации и скорость поиска необходимых книг. С этой задачей как всегда помогли справиться многофункциональные фильтры и система поиска написанная с использованием технологии Sphinx, которая делает поиск по более чем 500 тысячам товарам быстрым и точным.
+              img(src="assets/img/design1.png", alt="")
+              img(src="assets/img/design2.png", alt="")
+
+          .project__text.section-indent
+            .container 
+              h2 Каталог товаров
+              p Магазин содержит большое количество категорий и подкатегорий нескольких уровней вложенности. В каталоге мы представили возможность фильтровать товары по различным характеристикам и свойствам.
+              img(src="assets/img/design1.png", alt="")
+              img(src="assets/img/design2.png", alt="")
+          .project__result.section-indent
+            .container 
+              h2 Каталог товаров
+              p Магазин содержит большое количество категорий и подкатегорий нескольких уровней вложенности. В каталоге мы представили возможность фильтровать товары по различным характеристикам и свойствам.
+            img(src="assets/img/lavka-6.png", alt="")
+            .project__btn-wrap
+              a.btn.btn--filling-btn.btn--filled.btn--small.form-js(href='#form-js')
+                span Заказать похожий проект
+
+
+      
+
+      
+
+      include includes/contacts
+      include includes/calculator
+      include includes/form
+     
+   
+ 
+     
+    include includes/footer/footer
+    include includes/modal-window
+
+  include includes/scripts
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/parallax/2.1.3/jquery.parallax.min.js") 

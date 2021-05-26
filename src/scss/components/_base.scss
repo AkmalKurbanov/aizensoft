@@ -1100,3 +1100,32 @@ button {
 }
 
 // pagination end
+
+
+// scroll-top start
+.scroll-top {
+  width: rem(30);
+  height: rem(30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: rem(20);
+  left: 10px;
+  z-index: 99;
+  background-color: rgba($mc, .5);
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: $tr;
+
+  i {
+    color: $wc;
+  }
+
+  &.show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// scroll-top end
